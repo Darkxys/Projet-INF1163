@@ -1,3 +1,5 @@
+package com.example.projet_inf1163.src;
+
 public class Unite {
     private String identifiant;
     private String adresse;

@@ -1,3 +1,5 @@
+package com.example.projet_inf1163.src;
+
 import java.time.LocalDate;
 
 public class Paiement {

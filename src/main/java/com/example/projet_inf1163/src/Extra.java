@@ -1,3 +1,5 @@
+package com.example.projet_inf1163.src;
+
 public class Extra {
     private String nom;
     private String description;

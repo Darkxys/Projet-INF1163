@@ -1,3 +1,5 @@
+package com.example.projet_inf1163.src;
+
 public class Locataire {
     private String nom;
     private int cote_credit;
