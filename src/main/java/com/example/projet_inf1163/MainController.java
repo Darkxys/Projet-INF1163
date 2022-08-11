@@ -131,6 +131,9 @@ public class MainController extends Application {
                         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("ViewUnit.fxml"));
                         Scene scene = new Scene(fxmlLoader.load());
                         Stage window = new Stage();
+                        window.setOnHiding( event -> {
+                            displayList();
+                        } );
                         window.setScene(scene);
                         window.initModality(Modality.APPLICATION_MODAL);
                         window.show();

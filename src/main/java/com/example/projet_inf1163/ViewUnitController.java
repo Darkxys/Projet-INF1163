@@ -81,8 +81,8 @@ public class ViewUnitController extends Application {
     }
 
     @FXML
-    protected void onEditButtonClick(){
-        if(this.isEditMode){
+    protected void onEditButtonClick() {
+        if (this.isEditMode) {
             // Saving edits
             try {
                 Unite u = UniteCatalogue.getUnit(selectedIndex);
@@ -98,16 +98,21 @@ public class ViewUnitController extends Application {
                 u.updateIdentifiant();
 
                 UniteCatalogue.setUnit(u, selectedIndex);
-                ((Stage)btnEdit.getScene().getWindow()).close();
-            }
-            catch (Exception e) {
+                ((Stage) btnEdit.getScene().getWindow()).close();
+            } catch (Exception e) {
 
             }
         }
 
-        for(Control c : this.fieldsArr){
+        for (Control c : this.fieldsArr) {
             c.setDisable(this.isEditMode);
         }
         this.isEditMode = !this.isEditMode;
+    }
+
+    @Override
+    public void stop() throws Exception {
+        System.out.println("qweqweqwewqe");
+        super.stop();
     }
 }
