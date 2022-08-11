@@ -2,6 +2,8 @@ package com.example.projet_inf1163;
 
 import com.example.projet_inf1163.src.Bail;
 import com.example.projet_inf1163.src.BailCatalogue;
+import com.example.projet_inf1163.src.Unite;
+import com.example.projet_inf1163.src.UniteCatalogue;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -31,7 +33,8 @@ public class MainController extends Application {
 
     private int unitIndex = 0;
     private int qttCells = 10;
-    private ArrayList<String> values = new ArrayList<>();
+    private ArrayList<Unite> units = new ArrayList<>();
+
 
     public static void main(String[] args) {
         launch(args);
@@ -49,6 +52,7 @@ public class MainController extends Application {
     @FXML
     protected void initialize(){
         ArrayList<Bail> bails = BailCatalogue.getBails();
+        this.units = UniteCatalogue.getUnits();
 
         lstBail.getItems().addAll(bails);
         lstBail.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -72,10 +76,6 @@ public class MainController extends Application {
             }
         });
 
-
-        for(int i = 0; i < 33; i++){
-            this.values.add("Value : " + i);
-        }
         this.displayList();
     }
 
@@ -86,7 +86,7 @@ public class MainController extends Application {
         int index = Integer.parseInt(id.substring(id.length() - 1));
         this.unitIndex++;
 
-        if ((long) (this.unitIndex + 1) * this.qttCells >= this.values.size()) {
+        if ((long) (this.unitIndex + 1) * this.qttCells >= this.units.size()) {
             b.setDisable(true);
         }
         b.getParent().lookup("#back" + index).setDisable(false);
@@ -110,35 +110,38 @@ public class MainController extends Application {
     }
 
     private void displayList() {
-        ListView<String> lstView = new ListView<>();
+        ListView<Unite> lstView = new ListView<>();
         lstView.setPrefHeight(400);
         grpUnit.getChildren().clear();
 
         for (int i = 0; i < this.qttCells; i++) {
             int index = i + this.unitIndex * this.qttCells;
-            if(index >= this.values.size()) break;
+            if(index >= this.units.size()) break;
 
-            lstView.getItems().add(this.values.get(index));
+            lstView.getItems().add(this.units.get(index));
         }
 
-        lstView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        lstView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s1, String s2) {
-                ViewUnitController.unitSelected = s2;
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() >= 2) {
+                    ViewUnitController.unitSelected = lstView.getSelectionModel().getSelectedItem();
 
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("ViewUnit.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load());
-                    Stage window = new Stage();
-                    window.setScene(scene);
-                    window.initModality(Modality.APPLICATION_MODAL);
-                    window.show();
-                }
-                catch (IOException exception) {
-                    exception.printStackTrace();
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("ViewUnit.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        Stage window = new Stage();
+                        window.setScene(scene);
+                        window.initModality(Modality.APPLICATION_MODAL);
+                        window.show();
+                    }
+                    catch (IOException exception) {
+                        exception.printStackTrace();
+                    }
                 }
             }
         });
+
         grpUnit.getChildren().add(lstView);
     }
 

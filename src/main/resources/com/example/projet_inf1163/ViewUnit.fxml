@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.projet_inf1163.ViewUnitController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_inf1163.ViewUnitController">
    <children>
       <HBox prefHeight="49.0" prefWidth="600.0">
          <children>
@@ -28,9 +27,9 @@
             <Insets bottom="16.0" left="16.0" right="16.0" top="8.0" />
          </VBox.margin>
          <children>
-            <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="568.0">
+            <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="285.0" prefWidth="592.0">
                <children>
-                  <VBox prefHeight="289.0" prefWidth="103.0" spacing="40.0">
+                  <VBox prefHeight="285.0" prefWidth="85.0" spacing="40.0">
                      <children>
                         <Label text="Identifiant">
                            <VBox.margin>
@@ -42,7 +41,7 @@
                               <Insets top="6.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Prix de base">
+                        <Label prefHeight="17.0" prefWidth="92.0" text="Prix de base">
                            <VBox.margin>
                               <Insets top="7.0" />
                            </VBox.margin>
@@ -57,12 +56,58 @@
                         <Insets />
                      </HBox.margin>
                   </VBox>
-                  <VBox prefHeight="289.0" prefWidth="285.0" spacing="40.0" HBox.hgrow="NEVER">
+                  <VBox prefHeight="285.0" prefWidth="206.0" spacing="40.0" HBox.hgrow="NEVER">
                      <children>
                         <TextField fx:id="txtIdentifiant" disable="true" editable="false" />
                         <TextField fx:id="txtAdresse" disable="true" editable="false" />
-                        <TextField fx:id="txtPrix" disable="true" editable="false" />
-                        <ChoiceBox fx:id="cbLocataire" disable="true" prefHeight="25.0" prefWidth="196.0" />
+                        <TextField fx:id="txtPrix" disable="true" editable="false" prefHeight="25.0" prefWidth="119.0" />
+                        <ComboBox fx:id="cmbLocataire" disable="true" prefHeight="25.0" prefWidth="196.0" />
+                     </children></VBox>
+                  <Separator orientation="VERTICAL" prefHeight="285.0" prefWidth="38.0" />
+                  <VBox prefHeight="285.0" prefWidth="278.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label minWidth="-Infinity" text="Air" />
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtAir" disable="true" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label minWidth="-Infinity" text="# Chambre" />
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtRoom" disable="true" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label minWidth="-Infinity" text="Type d'unite" />
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <ComboBox fx:id="cmbType" disable="true" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label minWidth="-Infinity" text="# Salle de bain" />
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtBathroom" disable="true" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label minWidth="-Infinity" prefHeight="38.0" prefWidth="69.0" text="Date de construction" wrapText="true" />
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <DatePicker fx:id="dateBuilt" disable="true" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label minWidth="-Infinity" prefHeight="41.0" prefWidth="62.0" text="Indication de location" wrapText="true" />
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <ComboBox fx:id="cmbRent" disable="true" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
                      </children></VBox>
                </children>
             </HBox>
