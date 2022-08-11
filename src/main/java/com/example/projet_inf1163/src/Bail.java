@@ -176,6 +176,12 @@ public class Bail {
 
     @Override
     public String toString() {
-        return locataire + " " + date_debut.toString();
+        return locataire + " " +
+                date_debut.getYear() + "-" +
+                (date_debut.getMonthValue() < 10 ? "0" : "") + date_debut.getMonthValue() + "-" +
+                (date_debut.getDayOfMonth() < 10 ? "0" : "") + date_debut.getDayOfMonth() + " " +
+                (date_debut.getHour() < 10 ? "0" : "") + date_debut.getHour() + ":" +
+                (date_debut.getMinute() < 10 ? "0" : "") + date_debut.getMinute() + ":" +
+                (date_debut.getSecond() < 10 ? "0" : "") + date_debut.getSecond();
     }
 }

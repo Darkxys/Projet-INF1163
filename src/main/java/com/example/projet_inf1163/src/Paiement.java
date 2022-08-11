@@ -36,11 +36,11 @@ public class Paiement {
         BigDecimal bigDecimal = new BigDecimal(this.getValeur_cents().doubleValue());
         bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
         return this.dateTime.getYear() + "-" +
-                this.dateTime.getMonthValue() + "-" +
-                this.dateTime.getDayOfMonth() + " " +
-                this.dateTime.getHour() + ":" +
-                this.dateTime.getMinute() + ":" +
-                this.dateTime.getSecond() + " " +
+                (this.dateTime.getMonthValue() < 10 ? "0" : "") + this.dateTime.getMonthValue() + "-" +
+                (this.dateTime.getDayOfMonth() < 10 ? "0" : "") + this.dateTime.getDayOfMonth() + " " +
+                (this.dateTime.getHour() < 10 ? "0" : "") + this.dateTime.getHour() + ":" +
+                (this.dateTime.getMinute() < 10 ? "0" : "") + this.dateTime.getMinute() + ":" +
+                (this.dateTime.getSecond() < 10 ? "0" : "") + this.dateTime.getSecond() + " " +
                 bigDecimal + "$ " +
                 this.num_confirmation;
     }
