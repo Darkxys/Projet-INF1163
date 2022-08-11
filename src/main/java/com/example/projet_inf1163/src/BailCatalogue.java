@@ -21,6 +21,7 @@ public class BailCatalogue {
         b.setAssurance("1234567890");
         b.setRenouvelable(true);
         b.setDate_fin(now.plusYears(1));
+        b.setPeriode(new Periode(1));
 
         bails.add(b);
 
@@ -38,6 +39,7 @@ public class BailCatalogue {
         b.setAssurance("0987654321");
         b.setRenouvelable(false);
         b.setDate_fin(now.plusYears(1));
+        b.setPeriode(new Periode(2));
 
         bails.add(b);
 

@@ -61,10 +61,11 @@ public class Periode {
     }
 
     public LocalDateTime add(LocalDateTime dateTime, int qttPeriod){
-        return dateTime.plusMonths(this.months * qttPeriod)
+        dateTime = dateTime.plusMonths(this.months * qttPeriod)
                 .plusDays(this.days * qttPeriod)
                 .plusHours(this.hours * qttPeriod)
                 .plusMinutes(this.minutes * qttPeriod)
                 .plusSeconds(this.seconds * qttPeriod);
+        return dateTime;
     }
 }
