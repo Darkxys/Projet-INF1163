@@ -3,6 +3,9 @@ package com.example.projet_inf1163.src;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * Static class to have access to all bails everywhere
+ */
 public class BailCatalogue {
     private static ArrayList<Bail> createInitBails() {
         ArrayList<Bail> bails = new ArrayList<Bail>();

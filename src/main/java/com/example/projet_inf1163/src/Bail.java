@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bail {
+    // Properties declaration
     private Locataire locataire;
     private LocalDateTime date_debut;
     private LocalDateTime date_fin;
@@ -17,8 +18,26 @@ public class Bail {
     private Unite unite;
     private HistoriquePaiement paiements;
 
+    /**
+     * Bail constructor with a Locataire
+     * @param loc
+     */
     public Bail(Locataire loc) {
         this.locataire = loc;
+    }
+
+    //region Getters and setters
+
+    public List<Paiement> getPaiements() {
+        HistoriquePaiement h = new HistoriquePaiement();
+        h.generatePaiements(this, LocalDateTime.now());
+        return h.getPaiements();
+    }
+
+    public double getExtraPrice() {
+        if (this.extra == null)
+            return 0;
+        return this.extra.getPrix();
     }
 
     public void setUnite(Unite unite) {
@@ -84,15 +103,11 @@ public class Bail {
     public double getUnitPrice() {
         return this.unite.getPrix();
     }
+    //endregion
 
+    //region Calculators
     public double calculateUnitPriceForPeriod(LocalDateTime date) {
         return getUnitPrice() * this.getPriceMultipleForNextPayment(date);
-    }
-
-    public double getExtraPrice() {
-        if (this.extra == null)
-            return 0;
-        return this.extra.getPrix();
     }
 
     public double calculateExtraPriceForPeriod(LocalDateTime date) {
@@ -130,7 +145,13 @@ public class Bail {
     public double calculateTotalForPeriod(LocalDateTime date) {
         return calculateTotal() * this.getPriceMultipleForNextPayment(date);
     }
+    //endregion
 
+    /**
+     * Method to calculate the price for the next payment
+     * @param dateTime
+     * @return Price for the next payment
+     */
     public double getPriceMultipleForNextPayment(LocalDateTime dateTime) {
         LocalDateTime nextDateTime = this.periode.add(dateTime, 1);
 
@@ -151,12 +172,6 @@ public class Bail {
         double fraction = seconds.doubleValue() / secondsInMonth.doubleValue();
         d += fraction;
         return d;
-    }
-
-    public List<Paiement> getPaiements() {
-        HistoriquePaiement h = new HistoriquePaiement();
-        h.generatePaiements(this, LocalDateTime.now());
-        return h.getPaiements();
     }
 
     @Override

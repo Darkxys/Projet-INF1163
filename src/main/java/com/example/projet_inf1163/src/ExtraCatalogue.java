@@ -3,6 +3,9 @@ package com.example.projet_inf1163.src;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * Static class to have access to all Extras everywhere
+ */
 public class ExtraCatalogue {
     private static ArrayList<Extra> createInitExtra() {
         ArrayList<Extra> extras = new ArrayList<>();

@@ -1,11 +1,13 @@
 package com.example.projet_inf1163.src;
 
 public class Locataire {
+    // Properties declaration
     private String nom;
     private int cote_credit;
     private String adresse;
     private String phone;
 
+    //region Getters & Setters
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -37,6 +39,7 @@ public class Locataire {
     public String getPhone() {
         return this.phone;
     }
+    //endregion
 
     @Override
     public String toString() {

@@ -3,6 +3,9 @@ package com.example.projet_inf1163.src;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Static class to access all Units everywhere
+ */
 public class UniteCatalogue {
     private static ArrayList<Unite> createInitUnit() {
         ArrayList<Unite> units = new ArrayList<>();

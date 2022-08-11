@@ -6,12 +6,15 @@ import java.util.Stack;
 import java.util.UUID;
 
 public class HistoriquePaiement {
+    // Property declaration
     private ArrayList<Paiement> paiements;
 
+    // Default constructor
     public HistoriquePaiement() {
         this.paiements = new ArrayList<>();
     }
 
+    //region Getters & setters
     public ArrayList<Paiement> getPaiements() {
         return paiements;
     }
@@ -19,7 +22,13 @@ public class HistoriquePaiement {
     public void addPaiement(Paiement p) {
         this.paiements.add(p);
     }
+    //endregion
 
+    /**
+     * Method to generate payments from a bail
+     * @param bail
+     * @param endDate
+     */
     public void generatePaiements(Bail bail, LocalDateTime endDate) {
         Stack<Paiement> sPaiements = new Stack<Paiement>();
 

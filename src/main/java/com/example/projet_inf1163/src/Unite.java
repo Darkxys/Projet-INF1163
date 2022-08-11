@@ -3,17 +3,21 @@ package com.example.projet_inf1163.src;
 import java.time.LocalDate;
 
 public class Unite {
+    // Enum for unit types
     public enum UnitType {
         Commercial,
         Résidentiel,
         Autre
     }
+
+    // Enum for rent indication
     public enum RentIndication {
         Loué,
         Réservé,
         Libre
     }
 
+    // Properties declaration
     private String identifiant;
     private String adresse;
     // On stocke le prix en int (cents) car les nombre flotants peuvent être imprécis
@@ -27,6 +31,7 @@ public class Unite {
     private LocalDate builtDate;
     private RentIndication rentIndication;
 
+    //region Getters & Setters
     public float getPrix() {
         return (float) this.prix_base_cents / 100;
     }
@@ -115,12 +120,18 @@ public class Unite {
     public void setRentIndication(RentIndication rentIndication) {
         this.rentIndication = rentIndication;
     }
+    //endregion
 
     @Override
     public String toString() {
         return this.getIdentifiant();
     }
 
+    /**
+     * Method to check whether a string s matches one field on Unit
+     * @param s
+     * @return
+     */
     public boolean matches(String s) {
         return identifiant.contains(s) || adresse.contains(s) || (owner.getNom() != null && owner.getNom().contains(s));
     }

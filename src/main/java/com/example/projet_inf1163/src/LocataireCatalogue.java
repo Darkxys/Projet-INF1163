@@ -3,6 +3,9 @@ package com.example.projet_inf1163.src;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * Static class to access all Locataire everywhere
+ */
 public class LocataireCatalogue {
     private static ArrayList<Locataire> createInitLocataires() {
         ArrayList<Locataire> locataires = new ArrayList<Locataire>();
