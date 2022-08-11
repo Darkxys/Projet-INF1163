@@ -125,7 +125,7 @@ public class MainController extends Application {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (mouseEvent.getClickCount() >= 2) {
-                    ViewUnitController.unitSelected = lstView.getSelectionModel().getSelectedItem();
+                    ViewUnitController.selectedIndex = UniteCatalogue.getUnits().indexOf(lstView.getSelectionModel().getSelectedItem());
 
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("ViewUnit.fxml"));

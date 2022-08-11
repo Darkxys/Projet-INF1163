@@ -32,7 +32,16 @@ public class Unite {
     }
     public void setPrix(float prix) { this.prix_base_cents = (int)(prix * 100); }
 
-    public String getIdentifiant() { return this.identifiant; }
+    public void updateIdentifiant() {
+        this.identifiant = this.getPrix() + " | " + this.owner;
+    }
+
+    public String getIdentifiant() {
+        if(this.identifiant == null){
+            this.updateIdentifiant();
+        }
+        return this.identifiant;
+    }
     public void setIdentifiant(String id) { this.identifiant = id; }
 
     public String getAdresse() {
@@ -110,7 +119,7 @@ public class Unite {
     @Override
     public String toString() {
         return "Unite{" +
-                "identifiant='" + identifiant + '\'' +
+                "identifiant='" + this.getIdentifiant() + '\'' +
                 '}';
     }
 }

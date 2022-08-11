@@ -63,4 +63,14 @@ public class UniteCatalogue {
     public static void addUnit(Unite unit) {
         units.add(unit);
     }
+    public static void setUnit(Unite unit, int index) {
+        if(index < units.size()){
+            try {
+                units.set(index, unit);
+            }
+            catch (Exception e) {
+
+            }
+        }
+    }
 }
