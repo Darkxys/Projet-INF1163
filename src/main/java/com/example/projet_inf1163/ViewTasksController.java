@@ -1,5 +1,7 @@
 package com.example.projet_inf1163;
 
+import com.example.projet_inf1163.src.Bail;
+import com.example.projet_inf1163.src.BailCatalogue;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ViewTasksController extends Application {
@@ -41,6 +44,54 @@ public class ViewTasksController extends Application {
         s.setTitle("Tâches");
         s.setScene(this.scene);
         s.show();
+    }
+
+    private ArrayList<Bail> generateNextRenew(){
+        ArrayList<Bail> lst = new ArrayList<>();
+
+        for(Bail b : BailCatalogue.getBails()){
+            if(b.isRenouvelable() && b.getPeriode().add(b.getDate_fin(), -6).isBefore(LocalDateTime.now())){
+                lst.add(b);
+            }
+        }
+
+        return lst;
+    }
+
+    private ArrayList<Bail> generateFuturs(){
+        ArrayList<Bail> lst = new ArrayList<>();
+
+        for(Bail b : BailCatalogue.getBails()){
+            if(!b.isRenouvelable() && b.getPeriode().add(b.getDate_fin(), -5).isBefore(LocalDateTime.now())){
+                lst.add(b);
+            }
+        }
+
+        return lst;
+    }
+
+    private ArrayList<Bail> generateModif(){
+        ArrayList<Bail> lst = new ArrayList<>();
+
+        for(Bail b : BailCatalogue.getBails()){
+            if(b.getPeriode().add(b.getDate_fin(), -6).isBefore(LocalDateTime.now())){
+                lst.add(b);
+            }
+        }
+
+        return lst;
+    }
+
+    private ArrayList<Bail> generateCollection(){
+        ArrayList<Bail> lst = new ArrayList<>();
+
+        for(Bail b : BailCatalogue.getBails()){
+            if(b.getPeriode().add(b.getDate_fin(), -6).isBefore(LocalDateTime.now())){
+                lst.add(b);
+            }
+        }
+
+        return lst;
     }
 
     @FXML

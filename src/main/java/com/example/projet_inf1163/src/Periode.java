@@ -1,5 +1,8 @@
 package com.example.projet_inf1163.src;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Periode {
     private long months;
     private long days;
@@ -33,5 +36,33 @@ public class Periode {
 
     public boolean isZero() {
         return months == 0 && days == 0 && hours == 0 && minutes == 0 && seconds == 0;
+    }
+
+    public long getMonths() {
+        return months;
+    }
+
+    public long getDays() {
+        return days;
+    }
+
+    public long getHours() {
+        return hours;
+    }
+
+    public long getMinutes() {
+        return minutes;
+    }
+
+    public long getSeconds() {
+        return seconds;
+    }
+
+    public LocalDateTime add(LocalDateTime dateTime, int qttPeriod){
+        return dateTime.plusMonths(this.months * qttPeriod)
+                .plusDays(this.days * qttPeriod)
+                .plusHours(this.hours * qttPeriod)
+                .plusMinutes(this.minutes * qttPeriod)
+                .plusSeconds(this.seconds * qttPeriod);
     }
 }
