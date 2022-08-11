@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_inf1163.LocataireListController">
+   <children>
+      <Label text="Locataires">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <VBox>
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Nom" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="txtName" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Téléphone" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="txtPhone" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Cote de crédit" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="txtCoteCredit" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Adresse secondaire" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="txtSecondaryAddress" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="btnAdd" mnemonicParsing="false" text="Ajouter" />
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <ListView fx:id="lstLocataires" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="8.0" />
+         </VBox.margin></ListView>
+      <HBox alignment="CENTER_RIGHT">
+         <children>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnCancel_clicked" text="Annuler">
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnSelect" mnemonicParsing="false" text="Sélectionner">
+               <HBox.margin>
+                  <Insets left="16.0" top="8.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+</VBox>

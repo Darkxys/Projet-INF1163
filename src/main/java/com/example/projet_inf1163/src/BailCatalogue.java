@@ -1,6 +1,6 @@
 package com.example.projet_inf1163.src;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class BailCatalogue {
@@ -11,7 +11,7 @@ public class BailCatalogue {
         l.setNom("Jérémie Ouimet");
         l.setPhone("450 123 4567");
         Bail b = new Bail(l);
-        LocalDate now = LocalDate.now();
+        LocalDateTime now = LocalDateTime.now();
         b.setDate_debut(now);
         b.setAssurance("1234567890");
         b.setRenouvelable(true);
@@ -23,7 +23,7 @@ public class BailCatalogue {
         l.setNom("Francis Painchaud");
         l.setPhone("450 765 4321");
         b = new Bail(l);
-        now = LocalDate.now();
+        now = LocalDateTime.now();
         b.setDate_debut(now);
         b.setAssurance("0987654321");
         b.setRenouvelable(false);

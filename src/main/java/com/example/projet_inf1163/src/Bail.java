@@ -1,13 +1,13 @@
 package com.example.projet_inf1163.src;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Bail {
     private Locataire locataire;
-    private LocalDate date_debut;
-    private LocalDate date_fin;
-    private LocalDate periode;
+    private LocalDateTime date_debut;
+    private LocalDateTime date_fin;
+    private Periode periode;
     private boolean renouvelable;
     private String assurance;
     private ArrayList<Extra> extras;
@@ -34,27 +34,27 @@ public class Bail {
         return this.locataire;
     }
 
-    public void setDate_debut(LocalDate date_debut) {
+    public void setDate_debut(LocalDateTime date_debut) {
         this.date_debut = date_debut;
     }
 
-    public LocalDate getDate_debut() {
+    public LocalDateTime getDate_debut() {
         return this.date_debut;
     }
 
-    public void setDate_fin(LocalDate date_fin) {
+    public void setDate_fin(LocalDateTime date_fin) {
         this.date_fin = date_fin;
     }
 
-    public LocalDate getDate_fin() {
+    public LocalDateTime getDate_fin() {
         return this.date_fin;
     }
 
-    public void setPeriode(LocalDate periode) {
+    public void setPeriode(Periode periode) {
         this.periode = periode;
     }
 
-    public LocalDate getPeriode() {
+    public Periode getPeriode() {
         return periode;
     }
 
