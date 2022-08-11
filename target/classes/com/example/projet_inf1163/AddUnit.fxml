@@ -63,7 +63,7 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#onAddButton" prefHeight="25.0" prefWidth="79.0" text="Ajouter">
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddButton" prefHeight="25.0" prefWidth="79.0" text="Ajouter">
                <HBox.margin>
                   <Insets right="25.0" />
                </HBox.margin>

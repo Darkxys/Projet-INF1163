@@ -1,5 +1,6 @@
 package com.example.projet_inf1163;
 
+import com.example.projet_inf1163.src.Bail;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ViewBailController extends Application {
+    public static Bail selectedBail = null;
+
     private boolean isEditMode = false;
 
     @FXML
@@ -29,6 +32,29 @@ public class ViewBailController extends Application {
         primaryStage.setTitle("Apperçu du bail");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    @FXML
+    private void initialize() {
+        System.out.println(selectedBail);
+
+        if (selectedBail.getLocataire() != null) {
+            this.txtLocataire.setText(selectedBail.getLocataire().getNom());
+            this.txtPhoneNumber.setText(selectedBail.getLocataire().getPhone());
+        } else {
+            this.txtLocataire.setText(new String());
+            this.txtPhoneNumber.setText(new String());
+        }
+
+        if (selectedBail.getUnite() != null) {
+            this.txtUnite.setText(selectedBail.getUnite().getIdentifiant());
+            this.txtAddress.setText(selectedBail.getUnite().getAdresse());
+        } else {
+            this.txtUnite.setText(new String());
+            this.txtAddress.setText(new String());
+        }
+
+        this.txtInsuranceId.setText(selectedBail.getAssurance());
     }
 
     @FXML

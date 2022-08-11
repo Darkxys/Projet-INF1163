@@ -31,7 +31,7 @@
                   <Label text="Numéro de téléphone" />
                   <TextField fx:id="txtPhoneNumber" disable="true" />
                   <Label text="Identifiant d'assurance" />
-                  <TextField fx:id="txtUnite" disable="true" />
+                  <TextField fx:id="txtInsuranceId" disable="true" />
                   <Label text="Paiements">
                      <VBox.margin>
                         <Insets top="16.0" />
@@ -55,7 +55,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtInsuranceId" disable="true" />
+                  <TextField fx:id="txtUnite" disable="true" />
                   <Label text="Adresse" />
                   <TextField fx:id="txtAddress" disable="true" />
                   <Label text="Extras">

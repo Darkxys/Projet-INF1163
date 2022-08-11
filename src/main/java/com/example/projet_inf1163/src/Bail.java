@@ -1,6 +1,7 @@
 package com.example.projet_inf1163.src;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Bail {
     private Locataire locataire;
@@ -9,9 +10,28 @@ public class Bail {
     private LocalDate periode;
     private boolean renouvelable;
     private String assurance;
+    private ArrayList<Extra> extras;
+    private Unite unite;
 
     public Bail(Locataire loc) {
         this.locataire = loc;
+        this.extras = new ArrayList<Extra>();
+    }
+
+    public void setUnite(Unite unite) {
+        this.unite = unite;
+    }
+
+    public Unite getUnite() {
+        return unite;
+    }
+
+    public void setLocataire(Locataire loc) {
+        this.locataire = loc;
+    }
+
+    public Locataire getLocataire() {
+        return this.locataire;
     }
 
     public void setDate_debut(LocalDate date_debut) {
@@ -52,6 +72,30 @@ public class Bail {
 
     public String getAssurance() {
         return assurance;
+    }
+
+    public void addExtra(Extra extra) {
+        this.extras.add(extra);
+    }
+
+    public void removeExtra(Extra extra) {
+        try {
+            this.extras.remove(extra);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Extra getExtra(int i) {
+        try {
+            return this.extras.get(i);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public ArrayList<Extra> getExtras() {
+        return this.extras;
     }
 
     @Override

@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -13,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -49,6 +51,26 @@ public class MainController extends Application {
         ArrayList<Bail> bails = BailCatalogue.getBails();
 
         lstBail.getItems().addAll(bails);
+        lstBail.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() >= 2) {
+                    ViewBailController.selectedBail = lstBail.getSelectionModel().getSelectedItem();
+
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("ViewBail.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        Stage window = new Stage();
+                        window.setScene(scene);
+                        window.initModality(Modality.APPLICATION_MODAL);
+                        window.show();
+                    }
+                    catch (IOException exception) {
+                        exception.printStackTrace();
+                    }
+                }
+            }
+        });
 
 
         for(int i = 0; i < 33; i++){
