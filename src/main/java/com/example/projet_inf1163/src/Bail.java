@@ -10,12 +10,11 @@ public class Bail {
     private Periode periode;
     private boolean renouvelable;
     private String assurance;
-    private ArrayList<Extra> extras;
+    private Extra extra;
     private Unite unite;
 
     public Bail(Locataire loc) {
         this.locataire = loc;
-        this.extras = new ArrayList<Extra>();
     }
 
     public void setUnite(Unite unite) {
@@ -74,29 +73,8 @@ public class Bail {
         return assurance;
     }
 
-    public void addExtra(Extra extra) {
-        this.extras.add(extra);
-    }
-
-    public void removeExtra(Extra extra) {
-        try {
-            this.extras.remove(extra);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Extra getExtra(int i) {
-        try {
-            return this.extras.get(i);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public ArrayList<Extra> getExtras() {
-        return this.extras;
-    }
+    public Extra getExtra() { return this.extra; }
+    public void setExtra(Extra extra) { this.extra = extra; }
 
     @Override
     public String toString() {

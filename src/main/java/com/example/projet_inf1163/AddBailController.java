@@ -55,7 +55,9 @@ public class AddBailController extends Application {
     @FXML
     private TextField txtSelectedUnit, txtLocataire, txtSearchUnit, txtPeriodeMonth, txtPeriodeDay, txtPeriodeHour, txtPeriodeMinutes, txtPeriodeSeconds, txtDurationMonth, txtDurationDay, txtDurationHour, txtDurationMinutes, txtDurationSeconds, txtInsurance;
     @FXML
-    private CheckBox rdoRenewable, rdoOption1, rdoOption2, rdoOption3, rdoOption4, rdoOption5, rdoOption6;
+    private CheckBox rdoRenewable;
+    @FXML
+    private ComboBox<Extra> cmbExtra;
     @FXML
     private ListView<Unite> lstUnits;
 
@@ -86,6 +88,7 @@ public class AddBailController extends Application {
     private void initialize() {
         setSelectedLocataire(null);
         setSelectedUnit(null);
+        cmbExtra.getItems().addAll(ExtraCatalogue.getExtras());
 
         txtPeriodeMonth.setTextFormatter(new TextFormatter<Integer>(change -> {
             if (!change.getText().isEmpty()) {
@@ -330,8 +333,9 @@ public class AddBailController extends Application {
         } catch (ArithmeticException err) {
             return;
         }
-        newBail.setAssurance(txtInsurance.getText());
 
+        newBail.setAssurance(txtInsurance.getText());
+        newBail.setExtra(cmbExtra.getSelectionModel().getSelectedItem());
         newBail.setRenouvelable(rdoRenewable.isSelected());
 
         try {

@@ -145,36 +145,7 @@
                   <Insets bottom="4.0" top="4.0" />
                </padding></HBox>
             <Label text="Extras" />
-            <CheckBox fx:id="rdoOption1" mnemonicParsing="false" text="Option 1">
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="rdoOption2" mnemonicParsing="false" text="Option 2">
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="rdoOption3" mnemonicParsing="false" text="Option 3">
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="rdoOption4" mnemonicParsing="false" text="Option 4">
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="rdoOption5" mnemonicParsing="false" text="Option 5">
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="rdoOption6" mnemonicParsing="false" text="Option 6">
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </CheckBox>
+            <ComboBox fx:id="cmbExtra" prefWidth="150.0" />
             <CheckBox fx:id="rdoRenewable" mnemonicParsing="false" text="Renouvelable">
                <VBox.margin>
                   <Insets top="16.0" />

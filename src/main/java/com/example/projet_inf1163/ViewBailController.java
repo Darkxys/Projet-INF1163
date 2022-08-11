@@ -1,6 +1,6 @@
 package com.example.projet_inf1163;
 
-import com.example.projet_inf1163.src.Bail;
+import com.example.projet_inf1163.src.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,22 +8,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViewBailController extends Application {
-    public static Bail selectedBail = null;
+    public static int selectedIndex = 0;
 
     private boolean isEditMode = false;
 
     @FXML
     private Button btnCancel, btnEditBail;
     @FXML
-    private TextField txtLocataire, txtPhoneNumber, txtUnite, txtInsuranceId, txtAddress;
+    private TextField txtPhoneNumber, txtInsuranceId, txtAddress;
     @FXML
-    private CheckBox rdoOption01, rdoOption02, rdoOption03, rdoOption04, rdoOption05, rdoOption06;
+    private ComboBox<Extra> cmbExtra;
+    @FXML
+    private ComboBox<Unite> cmbUnit;
+    @FXML
+    private ComboBox<Locataire> cmbLocataire;
 
     @Override
     public void start(Stage primaryStage)  throws IOException {
@@ -36,22 +42,25 @@ public class ViewBailController extends Application {
 
     @FXML
     private void initialize() {
+        Bail selectedBail = BailCatalogue.getBail(selectedIndex);
         System.out.println(selectedBail);
 
+        cmbUnit.getItems().addAll(UniteCatalogue.getUnits());
+        cmbLocataire.getItems().addAll(LocataireCatalogue.getLocataires());
+        cmbExtra.getItems().addAll(ExtraCatalogue.getExtras());
+
         if (selectedBail.getLocataire() != null) {
-            this.txtLocataire.setText(selectedBail.getLocataire().getNom());
+            this.cmbLocataire.getSelectionModel().select(selectedBail.getLocataire());
             this.txtPhoneNumber.setText(selectedBail.getLocataire().getPhone());
         } else {
-            this.txtLocataire.setText(new String());
-            this.txtPhoneNumber.setText(new String());
+            this.txtPhoneNumber.setText("");
         }
 
         if (selectedBail.getUnite() != null) {
-            this.txtUnite.setText(selectedBail.getUnite().getIdentifiant());
+            this.cmbUnit.getSelectionModel().select(selectedBail.getUnite());
             this.txtAddress.setText(selectedBail.getUnite().getAdresse());
         } else {
-            this.txtUnite.setText(new String());
-            this.txtAddress.setText(new String());
+            this.txtAddress.setText("");
         }
 
         this.txtInsuranceId.setText(selectedBail.getAssurance());
@@ -67,21 +76,30 @@ public class ViewBailController extends Application {
         isEditMode = !isEditMode;
         if (isEditMode) {
             btnEditBail.setText("Confirmer");
+
+            try {
+                Bail b = BailCatalogue.getBail(selectedIndex);
+
+                b.setAssurance(txtInsuranceId.getText());
+                b.setLocataire(cmbLocataire.getSelectionModel().getSelectedItem());
+                b.setUnite(cmbUnit.getSelectionModel().getSelectedItem());
+                b.setExtra(cmbExtra.getSelectionModel().getSelectedItem());
+
+                BailCatalogue.setBail(b, selectedIndex);
+            }
+            catch (Exception exception) {
+
+            }
         } else {
             btnEditBail.setText("Modifier");
         }
 
-        txtLocataire.setDisable(!isEditMode);
+        cmbLocataire.setDisable(!isEditMode);
         txtPhoneNumber.setDisable(!isEditMode);
-        txtUnite.setDisable(!isEditMode);
+        cmbUnit.setDisable(!isEditMode);
         txtInsuranceId.setDisable(!isEditMode);
         txtAddress.setDisable(!isEditMode);
 
-        rdoOption01.setDisable(!isEditMode);
-        rdoOption02.setDisable(!isEditMode);
-        rdoOption03.setDisable(!isEditMode);
-        rdoOption04.setDisable(!isEditMode);
-        rdoOption05.setDisable(!isEditMode);
-        rdoOption06.setDisable(!isEditMode);
+        cmbExtra.setDisable(!isEditMode);
     }
 }

@@ -108,6 +108,11 @@ public class ViewUnitController extends Application {
             c.setDisable(this.isEditMode);
         }
         this.isEditMode = !this.isEditMode;
+        if (isEditMode) {
+            btnEdit.setText("Confirmer");
+        } else {
+            btnEdit.setText("Modifier");
+        }
     }
 
     @Override

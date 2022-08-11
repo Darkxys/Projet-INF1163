@@ -48,4 +48,14 @@ public class BailCatalogue {
     public static void addBail(Bail bail) {
         bails.add(bail);
     }
+    public static void setBail(Bail bail, int index) {
+        if(index < bails.size()){
+            try {
+                bails.set(index, bail);
+            }
+            catch (Exception e) {
+
+            }
+        }
+    }
 }

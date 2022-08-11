@@ -27,7 +27,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label text="Locataire" />
-                  <TextField fx:id="txtLocataire" disable="true" />
+                  <ComboBox fx:id="cmbLocataire" disable="true" />
                   <Label text="Numéro de téléphone" />
                   <TextField fx:id="txtPhoneNumber" disable="true" />
                   <Label text="Identifiant d'assurance" />
@@ -55,7 +55,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtUnite" disable="true" />
+                  <ComboBox fx:id="cmbUnit" disable="true" />
                   <Label text="Adresse" />
                   <TextField fx:id="txtAddress" disable="true" />
                   <Label text="Extras">
@@ -63,36 +63,7 @@
                         <Insets top="16.0" />
                      </VBox.margin>
                   </Label>
-                  <CheckBox fx:id="rdoOption01" disable="true" mnemonicParsing="false" text="Option 1">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="rdoOption02" disable="true" mnemonicParsing="false" text="Option 2">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="rdoOption03" disable="true" mnemonicParsing="false" text="Option 3">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="rdoOption04" disable="true" mnemonicParsing="false" text="Option 4">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="rdoOption05" disable="true" mnemonicParsing="false" text="Option 5">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </CheckBox>
-                  <CheckBox fx:id="rdoOption06" disable="true" mnemonicParsing="false" text="Option 6">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </CheckBox>
+                  <ComboBox fx:id="cmbExtra" prefWidth="150.0" />
                </children></VBox>
          </children>
       </HBox>

@@ -33,7 +33,7 @@ public class Unite {
     public void setPrix(float prix) { this.prix_base_cents = (int)(prix * 100); }
 
     public void updateIdentifiant() {
-        this.identifiant = this.getPrix() + " | " + this.owner;
+        this.identifiant = this.owner + " | " + this.adresse;
     }
 
     public String getIdentifiant() {
@@ -118,9 +118,7 @@ public class Unite {
 
     @Override
     public String toString() {
-        return "Unite{" +
-                "identifiant='" + this.getIdentifiant() + '\'' +
-                '}';
+        return this.getIdentifiant();
     }
 
     public boolean matches(String s) {

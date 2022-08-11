@@ -65,7 +65,7 @@ public class MainController extends Application {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (mouseEvent.getClickCount() >= 2) {
-                    ViewBailController.selectedBail = lstBail.getSelectionModel().getSelectedItem();
+                    ViewBailController.selectedIndex = BailCatalogue.getBails().indexOf(lstBail.getSelectionModel().getSelectedItem());
 
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("ViewBail.fxml"));
