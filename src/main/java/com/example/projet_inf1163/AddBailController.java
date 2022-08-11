@@ -20,29 +20,55 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AddBailController extends Application {
+    /**
+     * Method to set the previous controller
+     * @param previousController
+     */
     public void setPreviousController(MainController previousController) {
         this.previousController = previousController;
     }
+
+    /**
+     * Method to get the previous controller
+     * @return
+     */
     public MainController getPreviousController() {
         return this.previousController;
     }
 
+    // Previous Controller
     private MainController previousController;
 
+    /**
+     * Method to refresh Locataire
+     * @param locataire
+     */
     public void refreshLoc(Locataire locataire) {
         setSelectedLocataire(locataire);
         if (locataire != null) {
             txtLocataire.setText(selectedLocataire.getNom());
         }
     }
+
+    // Currently selected Locataire
     private Locataire selectedLocataire;
 
+    /**
+     * Set currently selected Locataire
+     * @param locataire
+     */
     private void setSelectedLocataire(Locataire locataire) {
         this.selectedLocataire = locataire;
         checkDisableContinue();
     }
+
+    // Selected Unit
     private Unite selectedUnit;
 
+    /**
+     * Set selected unit
+     * @param unit
+     */
     private void setSelectedUnit(Unite unit) {
         this.selectedUnit = unit;
         checkDisableContinue();
@@ -50,6 +76,7 @@ public class AddBailController extends Application {
 
     private ObservableList<Unite> unites;
 
+    //region FXML variables
     @FXML
     private Button btnCancel, btnGetLocataire, btnConfirmUnit, btnContinue;
     @FXML
@@ -60,6 +87,7 @@ public class AddBailController extends Application {
     private ComboBox<Extra> cmbExtra;
     @FXML
     private ListView<Unite> lstUnits;
+    //endregion
 
     @Override
     public void start(Stage primaryStage)  throws IOException {
@@ -70,6 +98,9 @@ public class AddBailController extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Method to refresh all units in the combobox
+     */
     private void refreshUnits() {
         ArrayList<Unite> arrUnits = UniteCatalogue.getUnits();
         ArrayList<Unite> filteredUnits = new ArrayList<Unite>();
@@ -85,6 +116,10 @@ public class AddBailController extends Application {
     }
 
     @FXML
+    /**
+     * Method to initialize components data
+     * All fields are initialized to nothing
+     */
     private void initialize() {
         setSelectedLocataire(null);
         setSelectedUnit(null);
@@ -221,6 +256,7 @@ public class AddBailController extends Application {
             return change;
         }));
 
+        // Listener to check if it should disable the continue button
         txtDurationMonth.textProperty().addListener((observable, oldValue, newValue) -> {
             checkDisableContinue();
         });
@@ -259,6 +295,9 @@ public class AddBailController extends Application {
         refreshUnits();
     }
 
+    /**
+     * Method to check if the continue button should be disabled
+     */
     private void checkDisableContinue() {
         if (selectedLocataire == null ||
                 selectedUnit == null ||
@@ -298,6 +337,9 @@ public class AddBailController extends Application {
     }
 
     @FXML
+    /**
+     * Method triggered when the continue button is clicked
+     */
     protected void btnContinue_clicked(ActionEvent e) {
         if (selectedLocataire == null) return;
         if (selectedUnit == null) return;
@@ -357,6 +399,9 @@ public class AddBailController extends Application {
     }
 
     @FXML
+    /**
+     * Method triggered when the GetLocataire button is clicked
+     */
     protected void btnGetLocataire_clicked(ActionEvent e) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("LocataireList.fxml"));

@@ -26,10 +26,11 @@ public class ViewTasksController extends Application {
     @FXML
     protected Group grpNextRenew, grpFuturs, grpModification, grpCollection;
 
-    // Private variable declaration
+    //region Properties declaration
     private int qttCells = 10;
     private ArrayList<Bail>[] values;
     private Scene scene;
+    //endregion Properties declaration
 
     // Current indexes
     private int[] indexes = {0, 0, 0, 0};

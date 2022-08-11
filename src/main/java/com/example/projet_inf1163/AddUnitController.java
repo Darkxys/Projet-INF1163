@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddUnitController extends Application {
+    //region FXML variables
     @FXML
     private Button addButton;
     @FXML
@@ -31,6 +32,7 @@ public class AddUnitController extends Application {
     private ComboBox<Unite.RentIndication> cmbRent;
     @FXML
     private DatePicker dateBuilt;
+    //endregion
 
     public static void main(String[] args) {
         launch(args);
@@ -53,6 +55,10 @@ public class AddUnitController extends Application {
     }
 
     @FXML
+    /**
+     * Method triggered when the add button is clicked.
+     * This method saves the new Unit into the UnitCatalogue
+     */
     public void onAddButton(ActionEvent e) {
         // Add unit to json
 

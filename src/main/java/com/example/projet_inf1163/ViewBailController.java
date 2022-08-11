@@ -15,13 +15,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ViewBailController extends Application {
+    //region Properties declaration
     public static int selectedIndex = 0;
 
     private boolean isEditMode = false;
 
     private ObservableList<Paiement> paiements;
     private Bail selectedBail;
+    //endregion Properties declaration
 
+    //region FXML variables
     @FXML
     private Button btnCancel, btnEditBail;
     @FXML
@@ -34,6 +37,7 @@ public class ViewBailController extends Application {
     private ComboBox<Locataire> cmbLocataire;
     @FXML
     private ListView<Paiement> lstPaiements;
+    //endregion FXML variables
 
     @Override
     public void start(Stage primaryStage)  throws IOException {
@@ -44,12 +48,18 @@ public class ViewBailController extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Method to refresh payments
+     */
     private void refreshPaiements() {
         paiements = FXCollections.observableList(selectedBail.getPaiements());
         lstPaiements.setItems(paiements);
     }
 
     @FXML
+    /**
+     * Method to initialize the fields to the bail values
+     */
     private void initialize() {
         selectedBail = BailCatalogue.getBail(selectedIndex);
 
@@ -80,11 +90,17 @@ public class ViewBailController extends Application {
     }
 
     @FXML
+    /**
+     * When the cancel button is clicked, close the window
+     */
     protected void btnCancel_clicked(ActionEvent e) {
         ((Stage)btnCancel.getScene().getWindow()).close();
     }
 
     @FXML
+    /**
+     * When the edit button is clicked, tries to edit the current bail
+     */
     protected void btnEditBail_clicked(ActionEvent e) {
         isEditMode = !isEditMode;
         if (isEditMode) {

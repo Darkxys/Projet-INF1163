@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class ViewUnitController extends Application {
 
+    //region FXML variables
     @FXML
     private TextField txtIdentifiant, txtAdresse, txtPrix, txtAir, txtRoom, txtBathroom;
 
@@ -27,10 +28,11 @@ public class ViewUnitController extends Application {
     private ComboBox<Unite.RentIndication> cmbRent;
     @FXML
     private Button btnEdit;
-
     @FXML
     private DatePicker dateBuilt;
+    //endregion FXML variables
 
+    //region Properties declaration
     private boolean isEditMode = false;
     private ArrayList<Control> fieldsArr = new ArrayList<>();
 
@@ -39,6 +41,7 @@ public class ViewUnitController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    //endregion Properties declaration
 
     @Override
     public void start(Stage primaryStage)  throws IOException {
@@ -50,6 +53,9 @@ public class ViewUnitController extends Application {
     }
 
     @FXML
+    /**
+     * Method to initialize fields to the Unit values
+     */
     protected void initialize(){
         this.fieldsArr.add(txtAdresse);
         this.fieldsArr.add(txtPrix);
@@ -81,6 +87,9 @@ public class ViewUnitController extends Application {
     }
 
     @FXML
+    /**
+     * When the edit button is clicked, tries to edit the currently selected unit
+     */
     protected void onEditButtonClick() {
         if (this.isEditMode) {
             // Saving edits
@@ -113,11 +122,5 @@ public class ViewUnitController extends Application {
         } else {
             btnEdit.setText("Modifier");
         }
-    }
-
-    @Override
-    public void stop() throws Exception {
-        System.out.println("qweqweqwewqe");
-        super.stop();
     }
 }

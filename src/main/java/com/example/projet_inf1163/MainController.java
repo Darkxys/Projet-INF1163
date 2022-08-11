@@ -28,15 +28,18 @@ import java.util.ArrayList;
 
 public class MainController extends Application {
 
+    //region FXML variables
     @FXML
     private Group grpUnit;
     @FXML
     private ListView<Bail> lstBail;
+    //endregion FXML variables
 
+    //region Properties declaration
     private int unitIndex = 0;
     private int qttCells = 10;
     private ArrayList<Unite> units = new ArrayList<>();
-
+    //endregion Properties declaration
 
     public static void main(String[] args) {
         launch(args);
@@ -51,12 +54,18 @@ public class MainController extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Method to refresh the bails
+     */
     public void refreshBails() {
         ObservableList<Bail> bails = FXCollections.observableList(BailCatalogue.getBails());
         lstBail.setItems(bails);
     }
 
     @FXML
+    /**
+     * Method to initialize the units list and the bails list
+     */
     protected void initialize(){
         this.units = UniteCatalogue.getUnits();
 
@@ -86,6 +95,10 @@ public class MainController extends Application {
     }
 
     @FXML
+    /**
+     * Method triggered when the -> is clicked
+     * Change the batch to the next one
+     */
     protected void onNext(ActionEvent e) {
         Button b = (Button) e.getSource();
         String id = b.getId();
@@ -101,6 +114,10 @@ public class MainController extends Application {
     }
 
     @FXML
+    /**
+     * Method triggered when the <- is clicked.
+     * Change the batch to the previous one
+     */
     protected void onBack(ActionEvent e) {
         Button b = (Button) e.getSource();
         String id = b.getId();
@@ -115,6 +132,9 @@ public class MainController extends Application {
         this.displayList();
     }
 
+    /**
+     * Method to display the unit list in batch mode
+     */
     private void displayList() {
         ListView<Unite> lstView = new ListView<>();
         lstView.setPrefHeight(400);
@@ -155,6 +175,9 @@ public class MainController extends Application {
     }
 
     @FXML
+    /**
+     * When the add button of Bail is clicked, open the Add Bail window
+     */
     protected void btnAddBail_clicked(ActionEvent e) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("AddBail.fxml"));
@@ -174,6 +197,9 @@ public class MainController extends Application {
     }
 
     @FXML
+    /**
+     * When the Tasks button is clicked, open the Tasks window
+     */
     protected void btnTasks_clicked(ActionEvent e) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("ViewTasks.fxml"));
@@ -189,6 +215,9 @@ public class MainController extends Application {
     }
 
     @FXML
+    /**
+     * When the add button of Unit is clicked, open the Add Unit window
+     */
     protected void btnAddUnit_clicked(ActionEvent e) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("AddUnit.fxml"));

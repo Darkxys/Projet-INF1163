@@ -22,19 +22,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LocataireListController extends Application {
+    /**
+     * Method to init previous controller
+     * @param addBailController
+     */
     public void initData(AddBailController addBailController) {
         this.bailControllerRef = addBailController;
     }
+    // Previous controller
     private AddBailController bailControllerRef;
 
     private ObservableList<Locataire> locList;
 
+    //region FXML variables
     @FXML
     private TextField txtName, txtPhone, txtCoteCredit, txtSecondaryAddress;
     @FXML
     private ListView<Locataire> lstLocataires;
     @FXML
     private Button btnAdd, btnSelect, btnCancel;
+    //endregion FXML variables
 
     @Override
     public void start(Stage primaryStage)  throws IOException {
@@ -45,11 +52,17 @@ public class LocataireListController extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Method to refresh the Locataire from the list
+     */
     private void refreshLocataires() {
         locList = FXCollections.observableList(LocataireCatalogue.getLocataires());
         lstLocataires.setItems(locList);
     }
 
+    /**
+     * Method to reset text fields to ""
+     */
     private void resetTextFields() {
         txtName.setText(new String());
         txtPhone.setText(new String());
@@ -57,6 +70,9 @@ public class LocataireListController extends Application {
         txtSecondaryAddress.setText(new String());
     }
 
+    /**
+     * Method to refresh the add button state
+     */
     private void refreshAddButtonState() {
         if (txtName.getText().trim().length() > 0 && txtPhone.getText().trim().length() > 0) {
             btnAdd.setDisable(false);
@@ -66,6 +82,10 @@ public class LocataireListController extends Application {
     }
 
     @FXML
+    /**
+     * Method to initialize components
+     * This method initialize text fields to "" and set some listener to refresh the add button state when needed.
+     */
     private void initialize() {
         btnAdd.setDisable(true);
         refreshLocataires();
@@ -90,6 +110,10 @@ public class LocataireListController extends Application {
     }
 
     @FXML
+    /**
+     * Method triggered when the add button is clicked.
+     * This method creates a new Locataire and puts it into LocataireCatalogue
+     */
     protected void btnAdd_clicked(ActionEvent e) {
         Locataire newLoc = new Locataire();
 
@@ -114,11 +138,17 @@ public class LocataireListController extends Application {
     }
 
     @FXML
+    /**
+     * When the cancel button is clicked, close the window.
+     */
     protected void btnCancel_clicked(ActionEvent e) {
         ((Stage)btnCancel.getScene().getWindow()).close();
     }
 
     @FXML
+    /**
+     * When the select button is clicked, refresh the Locataire.
+     */
     protected void btnSelect_clicked(ActionEvent e) {
         Locataire selectedLoc = this.lstLocataires.getSelectionModel().getSelectedItem();
         if (selectedLoc == null) return;
