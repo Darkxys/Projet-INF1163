@@ -21,12 +21,12 @@ public class PaymentInfoController extends Application {
     public void setCurrentBail(Bail bail) {
         currentBail = bail;
 
-        lblSommaryUnits.setText(df.format(currentBail.calculateUnitPriceForPeriod(currentBail.getDate_debut(), currentBail.getPeriode())));
-        lblSommaryExtras.setText(df.format(currentBail.calculateExtraPriceForPeriod(currentBail.getDate_debut(), currentBail.getPeriode())));
-        lblSommarySubtotal.setText(df.format(currentBail.calculateSubtotalForPeriod(currentBail.getDate_debut(), currentBail.getPeriode())));
-        lblSommaryTPS.setText(df.format(currentBail.calculateTPSForPeriod(currentBail.getDate_debut(), currentBail.getPeriode())));
-        lblSommaryTVQ.setText(df.format(currentBail.calculateTVQForPeriod(currentBail.getDate_debut(), currentBail.getPeriode())));
-        lblSommaryTotal.setText(df.format(currentBail.calculateTotalForPeriod(currentBail.getDate_debut(), currentBail.getPeriode())));
+        lblSommaryUnits.setText(df.format(currentBail.calculateUnitPriceForPeriod(currentBail.getDate_debut())));
+        lblSommaryExtras.setText(df.format(currentBail.calculateExtraPriceForPeriod(currentBail.getDate_debut())));
+        lblSommarySubtotal.setText(df.format(currentBail.calculateSubtotalForPeriod(currentBail.getDate_debut())));
+        lblSommaryTPS.setText(df.format(currentBail.calculateTPSForPeriod(currentBail.getDate_debut())));
+        lblSommaryTVQ.setText(df.format(currentBail.calculateTVQForPeriod(currentBail.getDate_debut())));
+        lblSommaryTotal.setText(df.format(currentBail.calculateTotalForPeriod(currentBail.getDate_debut())));
     }
 
     private Bail currentBail;

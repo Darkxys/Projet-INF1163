@@ -1,10 +1,10 @@
 package com.example.projet_inf1163.src;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Paiement {
     private int valeur_cents;
-    private LocalDate date;
+    private LocalDateTime dateTime;
     private String num_confirmation;
 
 
@@ -12,8 +12,8 @@ public class Paiement {
         return (float)this.valeur_cents / 100;
     }
 
-    public LocalDate getDate() {
-        return this.date;
+    public LocalDateTime getDateTime() {
+        return this.dateTime;
     }
 
     public String getNum_confirmation() {

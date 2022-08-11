@@ -5,7 +5,7 @@ public abstract class InfoPaiement {
 
     public abstract boolean validate();
 
-    public String getTokenizeCard() {
+    public String getTokenizedCard() {
         return this.tokenized_card;
     }
 }

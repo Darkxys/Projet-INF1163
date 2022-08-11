@@ -1,6 +1,8 @@
 package com.example.projet_inf1163.src;
 
 import java.time.LocalDateTime;
+import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Bail {
@@ -81,8 +83,8 @@ public class Bail {
         return this.unite.getPrix();
     }
 
-    public double calculateUnitPriceForPeriod(LocalDateTime date, Periode p) {
-        return getUnitPrice() * p.getPriceMultipleForNextPayment(date);
+    public double calculateUnitPriceForPeriod(LocalDateTime date) {
+        return getUnitPrice() * this.getPriceMultipleForNextPayment(date);
     }
 
     public double getExtraPrice() {
@@ -91,40 +93,62 @@ public class Bail {
         return this.extra.getPrix();
     }
 
-    public double calculateExtraPriceForPeriod(LocalDateTime date, Periode p) {
-        return getExtraPrice() * p.getPriceMultipleForNextPayment(date);
+    public double calculateExtraPriceForPeriod(LocalDateTime date) {
+        return getExtraPrice() * this.getPriceMultipleForNextPayment(date);
     }
 
     public double calculateSubtotal() {
         return this.getUnitPrice() + getExtraPrice();
     }
 
-    public double calculateSubtotalForPeriod(LocalDateTime date, Periode p) {
-        return calculateSubtotal() * p.getPriceMultipleForNextPayment(date);
+    public double calculateSubtotalForPeriod(LocalDateTime date) {
+        return calculateSubtotal() * this.getPriceMultipleForNextPayment(date);
     }
 
     public double calculateTPS() {
         return this.calculateSubtotal() * 0.05;
     }
 
-    public double calculateTPSForPeriod(LocalDateTime date, Periode p) {
-        return calculateTPS() * p.getPriceMultipleForNextPayment(date);
+    public double calculateTPSForPeriod(LocalDateTime date) {
+        return calculateTPS() * this.getPriceMultipleForNextPayment(date);
     }
 
     public double calculateTVQ() {
         return this.calculateSubtotal() * 0.09975;
     }
 
-    public double calculateTVQForPeriod(LocalDateTime date, Periode p) {
-        return calculateTVQ() * p.getPriceMultipleForNextPayment(date);
+    public double calculateTVQForPeriod(LocalDateTime date) {
+        return calculateTVQ() * this.getPriceMultipleForNextPayment(date);
     }
 
     public double calculateTotal() {
         return this.calculateSubtotal() + this.calculateTPS() + this.calculateTVQ();
     }
 
-    public double calculateTotalForPeriod(LocalDateTime date, Periode p) {
-        return calculateTotal() * p.getPriceMultipleForNextPayment(date);
+    public double calculateTotalForPeriod(LocalDateTime date) {
+        return calculateTotal() * this.getPriceMultipleForNextPayment(date);
+    }
+
+    public double getPriceMultipleForNextPayment(LocalDateTime dateTime) {
+        LocalDateTime nextDateTime = this.periode.add(dateTime, 1);
+
+        if (nextDateTime.compareTo(this.date_fin) > 0) {
+            nextDateTime = this.date_fin;
+        }
+
+        double d = 0;
+        long months = ChronoUnit.MONTHS.between(dateTime, nextDateTime);
+        d += months;
+        dateTime = dateTime.plusMonths(months);
+        YearMonth yearMonthObject = YearMonth.of(dateTime.getYear(), dateTime.getMonth());
+        int daysInMonth = yearMonthObject.lengthOfMonth();
+        long t = daysInMonth * 24 * 60 * 60;
+        Long secondsInMonth = t;
+
+        Long seconds = ChronoUnit.SECONDS.between(dateTime, nextDateTime);
+        double fraction = seconds.doubleValue() / secondsInMonth.doubleValue();
+        d += fraction;
+        return d;
     }
 
     @Override
