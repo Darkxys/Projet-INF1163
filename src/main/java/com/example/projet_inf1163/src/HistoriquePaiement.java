@@ -2,6 +2,7 @@ package com.example.projet_inf1163.src;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Stack;
 import java.util.UUID;
 
 public class HistoriquePaiement {
@@ -20,6 +21,8 @@ public class HistoriquePaiement {
     }
 
     public void generatePaiements(Bail bail, LocalDateTime endDate) {
+        Stack<Paiement> sPaiements = new Stack<Paiement>();
+
         if (endDate.compareTo(bail.getDate_fin()) > 0) {
             endDate = bail.getDate_fin();
         }
@@ -30,9 +33,15 @@ public class HistoriquePaiement {
             UUID uuid = UUID.randomUUID();
             Paiement p = new Paiement(l, paiementDate, uuid.toString());
 
-            this.paiements.add(p);
+            sPaiements.push(p);
 
             paiementDate = bail.getPeriode().add(paiementDate, 1);
+        }
+
+        this.paiements = new ArrayList<>();
+
+        while (!sPaiements.isEmpty()) {
+            this.addPaiement(sPaiements.pop());
         }
     }
 }
