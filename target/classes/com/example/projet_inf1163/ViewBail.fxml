@@ -27,11 +27,11 @@
             <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label text="Locataire" />
-                  <TextField fx:id="txtLocataire" />
+                  <TextField fx:id="txtLocataire" disable="true" />
                   <Label text="Numéro de téléphone" />
-                  <TextField fx:id="txtPhoneNumber" />
+                  <TextField fx:id="txtPhoneNumber" disable="true" />
                   <Label text="Identifiant d'assurance" />
-                  <TextField fx:id="txtUnite" />
+                  <TextField fx:id="txtUnite" disable="true" />
                   <Label text="Paiements">
                      <VBox.margin>
                         <Insets top="16.0" />
@@ -55,40 +55,40 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtInsuranceId" />
+                  <TextField fx:id="txtInsuranceId" disable="true" />
                   <Label text="Adresse" />
-                  <TextField fx:id="txtAddress" />
+                  <TextField fx:id="txtAddress" disable="true" />
                   <Label text="Extras">
                      <VBox.margin>
                         <Insets top="16.0" />
                      </VBox.margin>
                   </Label>
-                  <CheckBox fx:id="rdoOption01" mnemonicParsing="false" text="Option 1">
+                  <CheckBox fx:id="rdoOption01" disable="true" mnemonicParsing="false" text="Option 1">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <CheckBox fx:id="rdoOption02" mnemonicParsing="false" text="Option 2">
+                  <CheckBox fx:id="rdoOption02" disable="true" mnemonicParsing="false" text="Option 2">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <CheckBox fx:id="rdoOption03" mnemonicParsing="false" text="Option 3">
+                  <CheckBox fx:id="rdoOption03" disable="true" mnemonicParsing="false" text="Option 3">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <CheckBox fx:id="rdoOption04" mnemonicParsing="false" text="Option 4">
+                  <CheckBox fx:id="rdoOption04" disable="true" mnemonicParsing="false" text="Option 4">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <CheckBox fx:id="rdoOption05" mnemonicParsing="false" text="Option 5">
+                  <CheckBox fx:id="rdoOption05" disable="true" mnemonicParsing="false" text="Option 5">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <CheckBox fx:id="rdoOption06" mnemonicParsing="false" text="Option 6">
+                  <CheckBox fx:id="rdoOption06" disable="true" mnemonicParsing="false" text="Option 6">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -98,8 +98,8 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT">
          <children>
-            <Button fx:id="btnCancel" mnemonicParsing="false" text="Annuler" />
-            <Button fx:id="btnEditBail" mnemonicParsing="false" text="Modifier">
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnCancel_clicked" text="Annuler" />
+            <Button fx:id="btnEditBail" mnemonicParsing="false" onAction="#btnEditBail_clicked" text="Modifier">
                <HBox.margin>
                   <Insets left="16.0" />
                </HBox.margin></Button>
