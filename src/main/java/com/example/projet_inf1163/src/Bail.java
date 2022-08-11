@@ -81,24 +81,50 @@ public class Bail {
         return this.unite.getPrix();
     }
 
+    public double calculateUnitPriceForPeriod(LocalDateTime date, Periode p) {
+        return getUnitPrice() * p.getPriceMultipleForNextPayment(date);
+    }
+
     public double getExtraPrice() {
+        if (this.extra == null)
+            return 0;
         return this.extra.getPrix();
+    }
+
+    public double calculateExtraPriceForPeriod(LocalDateTime date, Periode p) {
+        return getExtraPrice() * p.getPriceMultipleForNextPayment(date);
     }
 
     public double calculateSubtotal() {
         return this.getUnitPrice() + getExtraPrice();
     }
 
+    public double calculateSubtotalForPeriod(LocalDateTime date, Periode p) {
+        return calculateSubtotal() * p.getPriceMultipleForNextPayment(date);
+    }
+
     public double calculateTPS() {
         return this.calculateSubtotal() * 0.05;
+    }
+
+    public double calculateTPSForPeriod(LocalDateTime date, Periode p) {
+        return calculateTPS() * p.getPriceMultipleForNextPayment(date);
     }
 
     public double calculateTVQ() {
         return this.calculateSubtotal() * 0.09975;
     }
 
+    public double calculateTVQForPeriod(LocalDateTime date, Periode p) {
+        return calculateTVQ() * p.getPriceMultipleForNextPayment(date);
+    }
+
     public double calculateTotal() {
         return this.calculateSubtotal() + this.calculateTPS() + this.calculateTVQ();
+    }
+
+    public double calculateTotalForPeriod(LocalDateTime date, Periode p) {
+        return calculateTotal() * p.getPriceMultipleForNextPayment(date);
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.example.projet_inf1163.src;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 
 public class Periode {
     private long months;
@@ -64,5 +66,22 @@ public class Periode {
                 .plusHours(this.hours * qttPeriod)
                 .plusMinutes(this.minutes * qttPeriod)
                 .plusSeconds(this.seconds * qttPeriod);
+    }
+
+    public double getPriceMultipleForNextPayment(LocalDateTime dateTime) {
+        LocalDateTime nextDateTime = this.add(dateTime, 1);
+        double d = 0;
+        long months = ChronoUnit.MONTHS.between(dateTime, nextDateTime);
+        d += months;
+        dateTime = dateTime.plusMonths(months);
+        YearMonth yearMonthObject = YearMonth.of(dateTime.getYear(), dateTime.getMonth());
+        int daysInMonth = yearMonthObject.lengthOfMonth();
+        long t = daysInMonth * 24 * 60 * 60;
+        Long secondsInMonth = t;
+
+        Long seconds = ChronoUnit.SECONDS.between(dateTime, nextDateTime);
+        double fraction = seconds.doubleValue() / secondsInMonth.doubleValue();
+        d += fraction;
+        return d;
     }
 }
