@@ -2,14 +2,13 @@ package com.example.projet_inf1163;
 
 import com.example.projet_inf1163.src.*;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +18,9 @@ public class ViewBailController extends Application {
     public static int selectedIndex = 0;
 
     private boolean isEditMode = false;
+
+    private ObservableList<Paiement> paiements;
+    private Bail selectedBail;
 
     @FXML
     private Button btnCancel, btnEditBail;
@@ -30,6 +32,8 @@ public class ViewBailController extends Application {
     private ComboBox<Unite> cmbUnit;
     @FXML
     private ComboBox<Locataire> cmbLocataire;
+    @FXML
+    private ListView<Paiement> lstPaiements;
 
     @Override
     public void start(Stage primaryStage)  throws IOException {
@@ -40,10 +44,16 @@ public class ViewBailController extends Application {
         primaryStage.show();
     }
 
+    private void refreshPaiements() {
+        paiements = FXCollections.observableList(selectedBail.getPaiements());
+        lstPaiements.setItems(paiements);
+    }
+
     @FXML
     private void initialize() {
-        Bail selectedBail = BailCatalogue.getBail(selectedIndex);
-        System.out.println(selectedBail);
+        selectedBail = BailCatalogue.getBail(selectedIndex);
+
+        refreshPaiements();
 
         cmbUnit.getItems().addAll(UniteCatalogue.getUnits());
         cmbLocataire.getItems().addAll(LocataireCatalogue.getLocataires());

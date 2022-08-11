@@ -9,7 +9,14 @@ public class BailCatalogue {
 
         Locataire l = LocataireCatalogue.getLocataire(0);
         Bail b = new Bail(l);
-        LocalDateTime now = LocalDateTime.now();
+
+        Unite u = UniteCatalogue.getUnit(1);
+        b.setUnite(u);
+
+        Periode p = new Periode(2);
+        b.setPeriode(p);
+
+        LocalDateTime now = LocalDateTime.now().minusYears(2);
         b.setDate_debut(now);
         b.setAssurance("1234567890");
         b.setRenouvelable(true);
@@ -19,7 +26,14 @@ public class BailCatalogue {
 
         l = LocataireCatalogue.getLocataire(1);
         b = new Bail(l);
-        now = LocalDateTime.now();
+
+        u = UniteCatalogue.getUnit(0);
+        b.setUnite(u);
+
+        p = new Periode(1);
+        b.setPeriode(p);
+
+        now = LocalDateTime.now().minusYears(5);
         b.setDate_debut(now);
         b.setAssurance("0987654321");
         b.setRenouvelable(false);

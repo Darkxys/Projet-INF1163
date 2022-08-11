@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bail {
     private Locataire locataire;
@@ -14,6 +15,7 @@ public class Bail {
     private String assurance;
     private Extra extra;
     private Unite unite;
+    private HistoriquePaiement paiements;
 
     public Bail(Locataire loc) {
         this.locataire = loc;
@@ -149,6 +151,12 @@ public class Bail {
         double fraction = seconds.doubleValue() / secondsInMonth.doubleValue();
         d += fraction;
         return d;
+    }
+
+    public List<Paiement> getPaiements() {
+        HistoriquePaiement h = new HistoriquePaiement();
+        h.generatePaiements(this, LocalDateTime.now());
+        return h.getPaiements();
     }
 
     @Override
