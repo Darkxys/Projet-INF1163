@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Création de bail">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="Unités" />
+            <TextField fx:id="txtSearchUnit">
+               <VBox.margin>
+                  <Insets bottom="8.0" />
+               </VBox.margin>
+            </TextField>
+            <ListView fx:id="lstUnits" prefHeight="200.0" prefWidth="200.0" />
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="btnConfirmUnit" mnemonicParsing="false" text="Confirmer">
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <Label text="Extras" />
+            <CheckBox fx:id="rdoOption1" mnemonicParsing="false" text="Option 1">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="rdoOption2" mnemonicParsing="false" text="Option 2">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="rdoOption3" mnemonicParsing="false" text="Option 3">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="rdoOption4" mnemonicParsing="false" text="Option 4">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="rdoOption5" mnemonicParsing="false" text="Option 5">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="rdoOption6" mnemonicParsing="false" text="Option 6">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="rdoRenewable" mnemonicParsing="false" text="Renouvelable">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+            </CheckBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </VBox.margin>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT">
+         <children>
+            <Button fx:id="btnCancel" mnemonicParsing="false" text="Annuler" />
+            <Button fx:id="btnContinue" mnemonicParsing="false" text="Continuer">
+               <HBox.margin>
+                  <Insets left="16.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets bottom="16.0" left="16.0" right="16.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
