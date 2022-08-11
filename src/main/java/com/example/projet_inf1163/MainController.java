@@ -1,5 +1,7 @@
 package com.example.projet_inf1163;
 
+import com.example.projet_inf1163.src.Bail;
+import com.example.projet_inf1163.src.BailCatalogue;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +22,8 @@ public class MainController extends Application {
 
     @FXML
     private Group grpUnit;
+    @FXML
+    private ListView<Bail> lstBail;
 
     private int unitIndex = 0;
     private int qttCells = 10;
@@ -40,6 +44,11 @@ public class MainController extends Application {
 
     @FXML
     protected void initialize(){
+        ArrayList<Bail> bails = BailCatalogue.getBails();
+
+        lstBail.getItems().addAll(bails);
+
+
         for(int i = 0; i < 33; i++){
             this.values.add("Value : " + i);
         }
