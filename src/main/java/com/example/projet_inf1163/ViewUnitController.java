@@ -29,7 +29,7 @@ public class ViewUnitController extends Application {
 
     @Override
     public void start(Stage primaryStage)  throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewUnit.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ViewUnitController.class.getResource("ViewUnit.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setTitle("Unité");
         primaryStage.setScene(scene);

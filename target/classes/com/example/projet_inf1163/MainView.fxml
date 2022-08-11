@@ -6,85 +6,95 @@
 <?import javafx.scene.text.*?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox>
-         <children>
-            <Label id="lblTitleMenu" text="Menu">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-         <VBox.margin>
-            <Insets left="16.0" right="16.0" top="16.0" />
-         </VBox.margin>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label text="Baux">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <padding>
-                              <Insets bottom="8.0" />
-                           </padding>
-                        </Label>
-                        <ListView fx:id="lstBail" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                     </children>
-                     <padding>
-                        <Insets bottom="8.0" />
-                     </padding>
-                  </VBox>
-                  <HBox alignment="CENTER_RIGHT">
-                     <children>
-                        <Button fx:id="btnAddBail" mnemonicParsing="false" text="Ajouter" />
-                     </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
-               </padding>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label text="Unités">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <padding>
-                              <Insets bottom="8.0" />
-                           </padding>
-                        </Label>
-                        <ListView fx:id="lstUnit" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                     </children>
-                     <padding>
-                        <Insets bottom="8.0" />
-                     </padding>
-                  </VBox>
-                  <HBox alignment="CENTER_RIGHT">
-                     <children>
-                        <Button fx:id="btnAddUnit" mnemonicParsing="false" text="Ajouter" />
-                     </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
-               </padding>
-            </VBox>
-         </children>
-      </HBox>
-   </children>
+<?import javafx.scene.Group?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.projet_inf1163.MainController">
+    <children>
+        <HBox>
+            <children>
+                <Label id="lblTitleMenu" text="Menu">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets left="16.0" right="16.0" top="16.0"/>
+            </VBox.margin>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <children>
+                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label text="Baux">
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="8.0"/>
+                                    </padding>
+                                </Label>
+                                <ListView fx:id="lstBail" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0"/>
+                            </padding>
+                        </VBox>
+                        <HBox alignment="CENTER_RIGHT">
+                            <children>
+                                <Button fx:id="btnAddBail" mnemonicParsing="false" text="Ajouter"/>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+                    </padding>
+                </VBox>
+
+                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label text="Unités">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="8.0"/>
+                                    </padding>
+                                </Label>
+                                <Separator prefWidth="200.0"/>
+                                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                                    <children>
+                                        <Button id="back0" disable="true" mnemonicParsing="false" onAction="#onBack"
+                                                prefHeight="25.0" prefWidth="66.0" text="&lt;-" HBox.hgrow="ALWAYS"/>
+                                        <Button id="next0" mnemonicParsing="false" onAction="#onNext" prefHeight="25.0"
+                                                prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS"/>
+                                    </children>
+                                </HBox>
+                                <Separator prefHeight="0.0" prefWidth="124.0"/>
+                                <Group fx:id="grpUnit"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0"/>
+                            </padding>
+                        </VBox>
+
+                    </children>
+                    <padding>
+                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+                    </padding>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
 </VBox>

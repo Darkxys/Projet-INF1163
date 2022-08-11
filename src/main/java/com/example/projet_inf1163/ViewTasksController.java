@@ -22,7 +22,7 @@ public class ViewTasksController extends Application {
     @FXML
     protected Group grpNextRenew, grpFuturs, grpModification, grpCollection;
 
-    private int qqtCells = 10;
+    private int qttCells = 10;
     private ArrayList<String>[] values;
     private Scene scene;
 
@@ -35,7 +35,7 @@ public class ViewTasksController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewTasks.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ViewTasksController.class.getResource("ViewTasks.fxml"));
         this.scene = new Scene(fxmlLoader.load());
         Stage s = new Stage();
         s.setTitle("Tâches");
@@ -69,7 +69,7 @@ public class ViewTasksController extends Application {
         int index = Integer.parseInt(id.substring(id.length() - 1));
         this.indexes[index]++;
 
-        if ((long) (this.indexes[index] + 1) * this.qqtCells >= this.values[index].stream().count()) {
+        if ((long) (this.indexes[index] + 1) * this.qttCells >= this.values[index].size()) {
             b.setDisable(true);
         }
         b.getParent().lookup("#back" + index).setDisable(false);
@@ -109,9 +109,12 @@ public class ViewTasksController extends Application {
         }
         g.getChildren().clear();
 
-        for (int i = 0; i < this.qqtCells; i++) {
+        for (int i = 0; i < this.qttCells; i++) {
+            int index = i + this.indexes[listIndex] * this.qttCells;
+            if(index >= this.values[listIndex].size()) break;
+
             lbl = new Label();
-            lbl.setText(this.values[listIndex].get(i + this.indexes[listIndex] * this.qqtCells));
+            lbl.setText(this.values[listIndex].get(index));
             vbox.getChildren().add(lbl);
         }
 
