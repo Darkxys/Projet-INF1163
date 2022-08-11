@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_inf1163.MainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_inf1163.MainController">
     <children>
         <HBox>
             <children>
@@ -40,7 +40,7 @@
                                         <Insets bottom="8.0" />
                                     </padding>
                                 </Label>
-                                <ListView fx:id="lstBail" VBox.vgrow="ALWAYS" />
+                                <ListView fx:id="lstBail" prefWidth="250.0" VBox.vgrow="ALWAYS" />
                             </children>
                             <padding>
                                 <Insets bottom="8.0" />
@@ -48,7 +48,9 @@
                         </VBox>
                         <HBox alignment="CENTER_RIGHT">
                             <children>
-                                <Button fx:id="btnAddBail" mnemonicParsing="false" onAction="#btnAddBail_clicked" text="Ajouter" />
+                        <Button minWidth="60.0" mnemonicParsing="false" onAction="#btnTasks_clicked" prefWidth="60.0" text="Tâches" />
+                        <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnAddBail" minWidth="60.0" mnemonicParsing="false" onAction="#btnAddBail_clicked" prefWidth="60.0" text="Ajouter" />
                             </children>
                         </HBox>
                     </children>
@@ -78,6 +80,13 @@
                                 </HBox>
                                 <Separator prefHeight="0.0" prefWidth="124.0" />
                                 <Group fx:id="grpUnit" />
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="17.0" prefWidth="142.0">
+                           <children>
+                              <Pane prefHeight="33.0" prefWidth="118.0" HBox.hgrow="ALWAYS" />
+                              <Button minWidth="60.0" mnemonicParsing="false" onAction="#btnAddUnit_clicked" text="Ajouter" />
+                           </children>
+                        </HBox>
                             </children>
                             <padding>
                                 <Insets bottom="8.0" />

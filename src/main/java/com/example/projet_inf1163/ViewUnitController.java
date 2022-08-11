@@ -23,6 +23,8 @@ public class ViewUnitController extends Application {
     private boolean isEditMode = false;
     private ArrayList<Control> fieldsArr = new ArrayList<>();
 
+    public static String unitSelected;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -41,6 +43,7 @@ public class ViewUnitController extends Application {
         this.fieldsArr.add(txtAdresse);
         this.fieldsArr.add(txtPrix);
         this.fieldsArr.add(cbLocataire);
+        System.out.println(unitSelected);
     }
 
     @FXML
