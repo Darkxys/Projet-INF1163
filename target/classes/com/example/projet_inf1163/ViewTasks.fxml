@@ -6,104 +6,111 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="800.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.projet_inf1163.ViewTasksController">
+<VBox prefHeight="800.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_inf1163.ViewTasksController">
     <children>
         <VBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="600.0">
             <children>
                 <Label text="Tâches">
                     <font>
-                        <Font size="24.0"/>
+                        <Font size="24.0" />
                     </font>
                     <VBox.margin>
-                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                     </VBox.margin>
                 </Label>
             </children>
         </VBox>
-        <Separator prefHeight="0.0" prefWidth="600.0"/>
+        <Separator prefHeight="0.0" prefWidth="600.0" />
         <HBox prefHeight="293.0" prefWidth="600.0" spacing="20.0" VBox.vgrow="ALWAYS">
             <children>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator orientation="VERTICAL" prefHeight="200.0" />
                 <VBox prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label prefHeight="68.0" prefWidth="107.0" text="Liste renouvellement prochain"
-                               textAlignment="CENTER" wrapText="true"/>
-                        <Separator prefWidth="200.0"/>
-                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                        <HBox prefHeight="70.0" prefWidth="124.0">
                             <children>
-                                <Button id="back0" disable="true" mnemonicParsing="false"
-                                        onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Button id="next0" mnemonicParsing="false" onAction="#onNext"
-                                        prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS"/>
+                                <Pane HBox.hgrow="ALWAYS" />
+                                <Label alignment="CENTER" prefHeight="68.0" prefWidth="107.0" text="Liste renouvellement prochain" textAlignment="CENTER" wrapText="true" />
+                                <Pane HBox.hgrow="ALWAYS" />
                             </children>
                         </HBox>
-                        <Separator prefHeight="0.0" prefWidth="124.0"/>
-                        <Group fx:id="grpNextRenew"/>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                            <children>
+                                <Button id="back0" disable="true" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-" HBox.hgrow="ALWAYS" />
+                                <Button id="next0" mnemonicParsing="false" onAction="#onNext" prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+                        <Separator prefHeight="0.0" prefWidth="124.0" />
+                        <Group fx:id="grpNextRenew" />
                     </children>
                 </VBox>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator orientation="VERTICAL" prefHeight="200.0" />
                 <VBox prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label prefHeight="68.0" prefWidth="107.0" text="Liste de futurs vacants" textAlignment="CENTER"
-                               wrapText="true"/>
-                        <Separator prefWidth="200.0"/>
-                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                        <HBox prefHeight="70.0" prefWidth="124.0">
                             <children>
-                                <Button id="back1" disable="true" mnemonicParsing="false"
-                                        onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Button id="next1" mnemonicParsing="false" onAction="#onNext"
-                                        prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS"/>
+                                <Pane HBox.hgrow="ALWAYS" />
+                                <Label alignment="CENTER" prefHeight="68.0" prefWidth="107.0" text="Liste de futurs vacants" textAlignment="CENTER" wrapText="true" />
+                                <Pane HBox.hgrow="ALWAYS" />
                             </children>
                         </HBox>
-                        <Separator prefHeight="0.0" prefWidth="124.0"/>
-                        <Group fx:id="grpFuturs"/>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                            <children>
+                                <Button id="back1" disable="true" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-" HBox.hgrow="ALWAYS" />
+                                <Button id="next1" mnemonicParsing="false" onAction="#onNext" prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+                        <Separator prefHeight="0.0" prefWidth="124.0" />
+                        <Group fx:id="grpFuturs" />
                     </children>
                 </VBox>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator orientation="VERTICAL" prefHeight="200.0" />
                 <VBox prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label prefHeight="68.0" prefWidth="107.0" text="Liste de modification" textAlignment="CENTER"
-                               wrapText="true"/>
-                        <Separator prefWidth="200.0"/>
-                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                        <HBox prefHeight="70.0" prefWidth="124.0">
                             <children>
-                                <Button id="back2" disable="true" mnemonicParsing="false"
-                                        onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Button id="next2" mnemonicParsing="false" onAction="#onNext"
-                                        prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS"/>
+                                <Pane HBox.hgrow="ALWAYS" />
+                                <Label alignment="CENTER" prefHeight="68.0" prefWidth="107.0" text="Liste de modification" textAlignment="CENTER" wrapText="true" />
+                                <Pane HBox.hgrow="ALWAYS" />
                             </children>
                         </HBox>
-                        <Separator prefHeight="0.0" prefWidth="124.0"/>
-                        <Group fx:id="grpModification"/>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                            <children>
+                                <Button id="back2" disable="true" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-" HBox.hgrow="ALWAYS" />
+                                <Button id="next2" mnemonicParsing="false" onAction="#onNext" prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+                        <Separator prefHeight="0.0" prefWidth="124.0" />
+                        <Group fx:id="grpModification" />
                     </children>
                 </VBox>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator orientation="VERTICAL" prefHeight="200.0" />
                 <VBox prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label prefHeight="68.0" prefWidth="107.0" text="Liste Liste de collection"
-                               textAlignment="CENTER" wrapText="true"/>
-                        <Separator prefWidth="200.0"/>
-                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                        <HBox prefHeight="70.0" prefWidth="124.0">
                             <children>
-                                <Button id="back3" disable="true" mnemonicParsing="false"
-                                        onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Button id="next3" mnemonicParsing="false" onAction="#onNext"
-                                        prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS"/>
+                                <Pane HBox.hgrow="ALWAYS" />
+                                <Label alignment="CENTER" prefHeight="68.0" prefWidth="107.0" text="Liste de collection" textAlignment="CENTER" wrapText="true" />
+                                <Pane HBox.hgrow="ALWAYS" />
                             </children>
                         </HBox>
-                        <Separator prefHeight="0.0" prefWidth="124.0"/>
-                        <Group fx:id="grpCollection"/>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="124.0">
+                            <children>
+                                <Button id="back3" disable="true" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="66.0" text="&lt;-" HBox.hgrow="ALWAYS" />
+                                <Button id="next3" mnemonicParsing="false" onAction="#onNext" prefHeight="25.0" prefWidth="72.0" text="-&gt;" HBox.hgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+                        <Separator prefHeight="0.0" prefWidth="124.0" />
+                        <Group fx:id="grpCollection" />
                     </children>
                 </VBox>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator orientation="VERTICAL" prefHeight="200.0" />
             </children>
             <VBox.margin>
-                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
             </VBox.margin>
         </HBox>
     </children>
