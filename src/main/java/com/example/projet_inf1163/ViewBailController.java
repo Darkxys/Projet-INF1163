@@ -65,7 +65,15 @@ public class ViewBailController extends Application {
 
         refreshPaiements();
 
-        cmbUnit.getItems().addAll(UniteCatalogue.getUnits());
+        ArrayList<Unite> units = new ArrayList<Unite>();
+
+        for (Unite u: UniteCatalogue.getUnits()) {
+            if (u.getRentIndication() == Unite.RentIndication.Libre || selectedBail.getUnite() == u) {
+                units.add(u);
+            }
+        }
+
+        cmbUnit.getItems().addAll(units);
         cmbLocataire.getItems().addAll(LocataireCatalogue.getLocataires());
         cmbExtra.getItems().addAll(ExtraCatalogue.getExtras());
 

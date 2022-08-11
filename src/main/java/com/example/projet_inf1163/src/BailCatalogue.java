@@ -46,6 +46,24 @@ public class BailCatalogue {
 
         bails.add(b);
 
+        l = LocataireCatalogue.getLocataire(2);
+        b = new Bail(l);
+
+        u = UniteCatalogue.getUnit(2);
+        b.setUnite(u);
+
+        p = new Periode(1);
+        b.setPeriode(p);
+
+        now = LocalDateTime.now().minusMonths(6);
+        b.setDate_debut(now);
+        b.setAssurance("6757577657");
+        b.setRenouvelable(true);
+        b.setDate_fin(now.plusMonths(6));
+        b.setPeriode(new Periode(1));
+
+        bails.add(b);
+
         return bails;
     }
 

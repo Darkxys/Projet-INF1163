@@ -106,7 +106,7 @@ public class AddBailController extends Application {
         ArrayList<Unite> filteredUnits = new ArrayList<Unite>();
 
         for (Unite unit: arrUnits) {
-            if (unit.matches(txtSearchUnit.getText())) {
+            if (unit.getRentIndication() == Unite.RentIndication.Libre && unit.matches(txtSearchUnit.getText())) {
                 filteredUnits.add(unit);
             }
         }

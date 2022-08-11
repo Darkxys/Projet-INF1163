@@ -41,7 +41,10 @@ public class Bail {
     }
 
     public void setUnite(Unite unite) {
+        if (this.unite != null)
+            this.unite.setRentIndication(Unite.RentIndication.Libre);
         this.unite = unite;
+        this.unite.setRentIndication(Unite.RentIndication.Loué);
     }
 
     public Unite getUnite() {

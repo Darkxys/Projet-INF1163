@@ -33,7 +33,7 @@ public class Paiement {
 
     @Override
     public String toString() {
-        BigDecimal bigDecimal = new BigDecimal(this.getValeur_cents().doubleValue());
+        BigDecimal bigDecimal = new BigDecimal(this.getValeur_cents().doubleValue() / 100);
         bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
         return this.dateTime.getYear() + "-" +
                 (this.dateTime.getMonthValue() < 10 ? "0" : "") + this.dateTime.getMonthValue() + "-" +
