@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -87,5 +88,20 @@ public class MainController extends Application {
         }
 
         grpUnit.getChildren().add(lstView);
+    }
+
+    @FXML
+    protected void btnAddBail_clicked(ActionEvent e) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("AddBail.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage window = new Stage();
+            window.setScene(scene);
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.show();
+        }
+        catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
