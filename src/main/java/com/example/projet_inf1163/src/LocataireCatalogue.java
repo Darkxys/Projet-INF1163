@@ -8,14 +8,14 @@ public class LocataireCatalogue {
         ArrayList<Locataire> locataires = new ArrayList<Locataire>();
 
         Locataire l = new Locataire();
-        l.setNom("Jérémie Ouimet");
+        l.setNom("John Smith");
         l.setPhone("450 123 4567");
         l.setCote_credit(670);
         l.setAdresse("60 some address, mtl");
         locataires.add(l);
 
         l = new Locataire();
-        l.setNom("Francis Painchaud");
+        l.setNom("Jean Pierre");
         l.setPhone("450 765 4321");
         l.setCote_credit(700);
         l.setAdresse("");

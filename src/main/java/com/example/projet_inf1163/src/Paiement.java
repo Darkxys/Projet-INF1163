@@ -1,15 +1,22 @@
 package com.example.projet_inf1163.src;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 public class Paiement {
-    private int valeur_cents;
+    private Long valeur_cents;
     private LocalDateTime dateTime;
     private String num_confirmation;
 
+    public Paiement(long value, LocalDateTime dateTime, String numConf) {
+        this.valeur_cents = value;
+        this.dateTime = dateTime;
+        this.num_confirmation = numConf;
+    }
 
-    public float getValeur_cents() {
-        return (float)this.valeur_cents / 100;
+    public Long getValeur_cents() {
+        return this.valeur_cents;
     }
 
     public LocalDateTime getDateTime() {
@@ -18,5 +25,19 @@ public class Paiement {
 
     public String getNum_confirmation() {
         return this.num_confirmation;
+    }
+
+    @Override
+    public String toString() {
+        BigDecimal bigDecimal = new BigDecimal(this.getValeur_cents().doubleValue());
+        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
+        return this.dateTime.getYear() + "-" +
+                this.dateTime.getMonthValue() + "-" +
+                this.dateTime.getDayOfMonth() + " " +
+                this.dateTime.getHour() + ":" +
+                this.dateTime.getMinute() + ":" +
+                this.dateTime.getSecond() + " " +
+                bigDecimal + "$ " +
+                this.num_confirmation;
     }
 }
