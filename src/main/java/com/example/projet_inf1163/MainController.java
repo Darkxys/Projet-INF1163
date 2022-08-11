@@ -7,6 +7,8 @@ import com.example.projet_inf1163.src.UniteCatalogue;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -49,12 +51,16 @@ public class MainController extends Application {
         primaryStage.show();
     }
 
+    public void refreshBails() {
+        ObservableList<Bail> bails = FXCollections.observableList(BailCatalogue.getBails());
+        lstBail.setItems(bails);
+    }
+
     @FXML
     protected void initialize(){
-        ArrayList<Bail> bails = BailCatalogue.getBails();
         this.units = UniteCatalogue.getUnits();
 
-        lstBail.getItems().addAll(bails);
+        refreshBails();
         lstBail.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -156,6 +162,10 @@ public class MainController extends Application {
             Stage window = new Stage();
             window.setScene(scene);
             window.initModality(Modality.APPLICATION_MODAL);
+
+            AddBailController addBailController = fxmlLoader.getController();
+            addBailController.setPreviousController(this);
+
             window.show();
         }
         catch (IOException exception) {

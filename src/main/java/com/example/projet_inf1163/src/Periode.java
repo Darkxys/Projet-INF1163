@@ -30,4 +30,8 @@ public class Periode {
         this.minutes = minutes;
         this.seconds = seconds;
     }
+
+    public boolean isZero() {
+        return months == 0 && days == 0 && hours == 0 && minutes == 0 && seconds == 0;
+    }
 }

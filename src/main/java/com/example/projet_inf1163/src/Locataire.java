@@ -5,7 +5,6 @@ public class Locataire {
     private int cote_credit;
     private String adresse;
     private String phone;
-    private String coord_proprio;
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -37,14 +36,6 @@ public class Locataire {
 
     public String getPhone() {
         return this.phone;
-    }
-
-    public void setCoord_proprio(String coord_proprio) {
-        this.coord_proprio = coord_proprio;
-    }
-
-    public String getCoord_proprio() {
-        return this.coord_proprio;
     }
 
     @Override

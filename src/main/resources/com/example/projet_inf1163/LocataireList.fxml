@@ -56,7 +56,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT">
                <children>
-                  <Button fx:id="btnAdd" mnemonicParsing="false" text="Ajouter" />
+                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAdd_clicked" text="Ajouter" />
                </children>
                <VBox.margin>
                   <Insets top="8.0" />
@@ -75,7 +75,7 @@
                   <Insets top="8.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnSelect" mnemonicParsing="false" text="Sélectionner">
+            <Button fx:id="btnSelect" mnemonicParsing="false" onAction="#btnSelect_clicked" text="Sélectionner">
                <HBox.margin>
                   <Insets left="16.0" top="8.0" />
                </HBox.margin></Button>

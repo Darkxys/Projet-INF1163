@@ -7,9 +7,7 @@ public class BailCatalogue {
     private static ArrayList<Bail> createInitBails() {
         ArrayList<Bail> bails = new ArrayList<Bail>();
 
-        Locataire l = new Locataire();
-        l.setNom("Jérémie Ouimet");
-        l.setPhone("450 123 4567");
+        Locataire l = LocataireCatalogue.getLocataire(0);
         Bail b = new Bail(l);
         LocalDateTime now = LocalDateTime.now();
         b.setDate_debut(now);
@@ -19,9 +17,7 @@ public class BailCatalogue {
 
         bails.add(b);
 
-        l = new Locataire();
-        l.setNom("Francis Painchaud");
-        l.setPhone("450 765 4321");
+        l = LocataireCatalogue.getLocataire(1);
         b = new Bail(l);
         now = LocalDateTime.now();
         b.setDate_debut(now);

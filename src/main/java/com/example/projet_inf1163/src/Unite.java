@@ -122,4 +122,8 @@ public class Unite {
                 "identifiant='" + this.getIdentifiant() + '\'' +
                 '}';
     }
+
+    public boolean matches(String s) {
+        return identifiant.contains(s) || adresse.contains(s) || (owner.getNom() != null && owner.getNom().contains(s));
+    }
 }

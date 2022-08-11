@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="894.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_inf1163.AddBailController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_inf1163.AddBailController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
@@ -31,9 +31,14 @@
                </VBox.margin>
             </TextField>
             <ListView fx:id="lstUnits" prefHeight="200.0" prefWidth="200.0" />
+            <TextField fx:id="txtSelectedUnit" editable="false">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </TextField>
             <HBox alignment="CENTER_RIGHT">
                <children>
-                  <Button fx:id="btnConfirmUnit" mnemonicParsing="false" text="Confirmer">
+                  <Button fx:id="btnConfirmUnit" mnemonicParsing="false" onAction="#btnConfirmUnit_clicked" text="Sélectionner">
                      <HBox.margin>
                         <Insets top="8.0" />
                      </HBox.margin>
@@ -45,7 +50,7 @@
                   <Label text="Période de paiement" />
                   <HBox>
                      <children>
-                        <Label text="Mois" />
+                        <Label text="Mois (max 120)" />
                         <Pane HBox.hgrow="ALWAYS" />
                         <TextField fx:id="txtPeriodeMonth" prefWidth="200.0" />
                      </children>
@@ -90,7 +95,7 @@
                   <Label text="Durée de la location" />
                   <HBox>
                      <children>
-                        <Label text="Mois" />
+                        <Label text="Mois (max 120)" />
                         <Pane HBox.hgrow="ALWAYS" />
                         <TextField fx:id="txtDurationMonth" prefWidth="200.0" />
                      </children>
@@ -115,12 +120,12 @@
                         <HBox prefWidth="200.0">
                            <children>
                               <TextField fx:id="txtDurationHour" HBox.hgrow="ALWAYS" />
-                              <TextField fx:id="txtPeriodeMinutes" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="txtDurationMinutes" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets left="8.0" right="8.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField fx:id="txtPeriodeSeconds" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtDurationSeconds" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
                      </children>
