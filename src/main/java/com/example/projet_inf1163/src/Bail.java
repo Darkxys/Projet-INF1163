@@ -74,7 +74,32 @@ public class Bail {
     }
 
     public Extra getExtra() { return this.extra; }
+
     public void setExtra(Extra extra) { this.extra = extra; }
+
+    public double getUnitPrice() {
+        return this.unite.getPrix();
+    }
+
+    public double getExtraPrice() {
+        return this.extra.getPrix();
+    }
+
+    public double calculateSubtotal() {
+        return this.getUnitPrice() + getExtraPrice();
+    }
+
+    public double calculateTPS() {
+        return this.calculateSubtotal() * 0.05;
+    }
+
+    public double calculateTVQ() {
+        return this.calculateSubtotal() * 0.09975;
+    }
+
+    public double calculateTotal() {
+        return this.calculateSubtotal() + this.calculateTPS() + this.calculateTVQ();
+    }
 
     @Override
     public String toString() {
