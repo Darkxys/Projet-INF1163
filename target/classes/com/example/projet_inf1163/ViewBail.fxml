@@ -63,7 +63,7 @@
                         <Insets top="16.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox fx:id="cmbExtra" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbExtra" disable="true" prefWidth="150.0" />
                </children></VBox>
          </children>
       </HBox>

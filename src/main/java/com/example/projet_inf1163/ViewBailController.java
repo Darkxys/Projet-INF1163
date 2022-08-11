@@ -59,6 +59,9 @@ public class ViewBailController extends Application {
         cmbLocataire.getItems().addAll(LocataireCatalogue.getLocataires());
         cmbExtra.getItems().addAll(ExtraCatalogue.getExtras());
 
+        if (selectedBail.getExtra() != null)
+            cmbExtra.getSelectionModel().select(selectedBail.getExtra());
+
         if (selectedBail.getLocataire() != null) {
             this.cmbLocataire.getSelectionModel().select(selectedBail.getLocataire());
             this.txtPhoneNumber.setText(selectedBail.getLocataire().getPhone());
@@ -86,7 +89,7 @@ public class ViewBailController extends Application {
         isEditMode = !isEditMode;
         if (isEditMode) {
             btnEditBail.setText("Confirmer");
-
+        } else {
             try {
                 Bail b = BailCatalogue.getBail(selectedIndex);
 
@@ -98,9 +101,8 @@ public class ViewBailController extends Application {
                 BailCatalogue.setBail(b, selectedIndex);
             }
             catch (Exception exception) {
-
+                exception.printStackTrace();
             }
-        } else {
             btnEditBail.setText("Modifier");
         }
 
