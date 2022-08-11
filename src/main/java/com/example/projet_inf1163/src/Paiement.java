@@ -8,8 +8,8 @@ public class Paiement {
     private String num_confirmation;
 
 
-    public int getValeur_cents() {
-        return this.valeur_cents;
+    public float getValeur_cents() {
+        return (float)this.valeur_cents / 100;
     }
 
     public LocalDate getDate() {
