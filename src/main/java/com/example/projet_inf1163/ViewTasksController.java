@@ -53,7 +53,7 @@ public class ViewTasksController extends Application {
      * Method to generate bail for next renewal
      * @return
      */
-    private ArrayList<Bail> generateNextRenew(){
+    public ArrayList<Bail> generateNextRenew(){
         ArrayList<Bail> lst = new ArrayList<>();
 
         for(Bail b : BailCatalogue.getBails()){
@@ -71,7 +71,7 @@ public class ViewTasksController extends Application {
      * Method to generate the list of future people
      * @return
      */
-    private ArrayList<Bail> generateFuturs(){
+    public ArrayList<Bail> generateFuturs(){
         ArrayList<Bail> lst = new ArrayList<>();
 
         for(Bail b : BailCatalogue.getBails()){
@@ -89,7 +89,7 @@ public class ViewTasksController extends Application {
      * Method to generate the lift for modification
      * @return
      */
-    private ArrayList<Bail> generateModif(){
+    public ArrayList<Bail> generateModif(){
         ArrayList<Bail> lst = new ArrayList<>();
 
         for(Bail b : BailCatalogue.getBails()){
@@ -180,8 +180,11 @@ public class ViewTasksController extends Application {
      * @param listIndex
      */
     private void displayList(int listIndex) {
+        // Create a dummy label
         Label lbl;
+        // Create a vbox to contain the list
         VBox vbox = new VBox();
+        // Get the group that needs to display their list
         Group g = this.grpNextRenew;
         switch (listIndex) {
             case 1:
@@ -194,17 +197,25 @@ public class ViewTasksController extends Application {
                 g = this.grpCollection;
                 break;
         }
+        // Remove all children to re-populate
         g.getChildren().clear();
 
+        // For loop with a maximum of qttCells per page
         for (int i = 0; i < this.qttCells; i++) {
+            // Get the element index to display
             int index = i + this.indexes[listIndex] * this.qttCells;
+            // When the index is over the size of array, get out of for loop
             if(index >= this.values[listIndex].size()) break;
 
+            // Instantiate a new label
             lbl = new Label();
+            // Set the label text to the value of the list
             lbl.setText(this.values[listIndex].get(index).toString());
+            // Put the label into the vbox
             vbox.getChildren().add(lbl);
         }
 
+        // Put the vbox into the group
         g.getChildren().add(vbox);
     }
 }

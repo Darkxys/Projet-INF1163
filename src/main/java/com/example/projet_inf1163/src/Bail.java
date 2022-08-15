@@ -17,6 +17,7 @@ public class Bail {
     private Extra extra;
     private Unite unite;
     private HistoriquePaiement paiements;
+    public Bail bail;
 
     /**
      * Bail constructor with a Locataire
@@ -149,6 +150,14 @@ public class Bail {
         return calculateTotal() * this.getPriceMultipleForNextPayment(date);
     }
     //endregion
+
+    public Bail renew(){
+        int index = BailCatalogue.getBails().indexOf(this);
+        Bail b = new Bail(this.locataire);
+        b.bail = this;
+        BailCatalogue.setBail(b,index);
+        return b;
+    }
 
     /**
      * Method to calculate the price for the next payment
