@@ -156,24 +156,40 @@ public class Bail {
      * @return Price for the next payment
      */
     public double getPriceMultipleForNextPayment(LocalDateTime dateTime) {
+        // Get the local date and time from the beginning of the billable period (usually the start of the bail)
+        // and add one unit of Periode in time to it, if we pay per month this will be a month, if we pay per 2 months, this will be 2 months
         LocalDateTime nextDateTime = this.periode.add(dateTime, 1);
 
+        // If the time +1 month is bigger than the end date, we will calculate the amount to pay until the end date instead
         if (nextDateTime.compareTo(this.date_fin) > 0) {
             nextDateTime = this.date_fin;
         }
 
+        // We initiate a multiplier to 0
         double d = 0;
+        // We get the number of months between the billing date start and the billing date + the period
         long months = ChronoUnit.MONTHS.between(dateTime, nextDateTime);
+        // We add the number of months to the multiplier
         d += months;
+        // We increment the starting date y the number of months to not count them twice
         dateTime = dateTime.plusMonths(months);
+        // We transfer it into a YearMonth object
         YearMonth yearMonthObject = YearMonth.of(dateTime.getYear(), dateTime.getMonth());
+        // From this object we get the number of days in the specific month
         int daysInMonth = yearMonthObject.lengthOfMonth();
+        // We get the number of seconds in this month
         long t = daysInMonth * 24 * 60 * 60;
+        // Long object
         Long secondsInMonth = t;
 
+        // We get the amount of seconds in the billing period
         Long seconds = ChronoUnit.SECONDS.between(dateTime, nextDateTime);
+        // We calculate the decimal value of the billing time in seconds divided by the number of seconds in a month
         double fraction = seconds.doubleValue() / secondsInMonth.doubleValue();
+        // We increment the multiplier with the decimal value
         d += fraction;
+        // We return the added value of the multiplier,
+        // we can multiply this value with the price of the unit per month to get how much we will pay for the next payment
         return d;
     }
 
